@@ -1,0 +1,197 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page - 我的 ASP.NET 應用程式</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/Site.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        body {
+            background-color: #97B4E7;
+            margin: 0px;
+        }
+
+        .title {
+            font-family: "新細明體", "細明體", "標楷體";
+            font-size: 16px;
+            font-weight: bold;
+            color: #FF2E00;
+        }
+
+        .warning {
+            color: Navy;
+            font-size: 11px;
+            bottom: 0px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .question {
+            color: Navy;
+            font-size: 12px;
+            bottom: 0px;
+            margin-right: auto;
+            margin-left: auto;
+            text-align: center;
+        }
+
+        .notes {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 11px;
+            text-align: center;
+            color: #999;
+            margin-right: auto;
+            margin-left: auto;
+        }
+
+        .notes_pos {
+            position: absolute;
+            bottom: 10px;
+            width: 100%;
+            text-align: center;
+        }
+
+        /* overridy */
+        .panel-default > .panel-heading {
+            color: #333;
+            background-color: #DDDDDD; /* #f5f5f5 */
+            border-color: #ddd;
+        }
+
+        .panel-footer {
+            padding: 10px 15px;
+            background-color: #DDDDDD; /* #f5f5f5 */
+            border-style: none;
+            /*border-top: 1px solid #ddd;
+            border-bottom-right-radius: 3px;
+            border-bottom-left-radius: 3px;*/
+        }
+
+        /* 手機模式：寬螢寬度小於 768px。 */
+        @media screen and (max-width: 767px) {
+            .container {
+                padding-right: 0;
+                padding-left: 0;
+                margin-right: auto;
+                margin-left: auto;
+            }
+
+            .panel-footer {
+                padding: 8px 10px;
+                background-color: #DDDDDD; /* #f5f5f5 */
+                /*border-top: 1px solid #ddd;
+                border-bottom-right-radius: 3px;
+                border-bottom-left-radius: 3px;*/
+            }
+
+            #img_Incident {
+                margin-bottom: 1em;
+            }
+        }
+    </style>
+
+    <script type="text/javascript">
+
+        function btnreset_Click() {
+            document.getElementById("txtUserID").value = "";
+            document.getElementById("txtPassword").value = "";
+        }
+
+        function reloadpic() {
+            document.getElementById("img_validcode").src = "Common/ValidateCode.aspx?=" + Math.random();
+        }
+    </script>
+
+</head>
+<body>    
+    <div class="container">
+
+        <!-- margin-top -->
+        <div class="row">
+            <div class="hidden-xs col-sm-12">
+                <div style="margin-top:11%;"></div>
+            </div>
+        </div>
+
+        <form name="form1" method="post" action="Logon.aspx" id="form1" class="form-horizontal">
+            <div class="hidden-xs col-sm-2 col-md-3"></div><!-- aside -->
+            <div class="col-xs-12 col-sm-8 col-md-6" style="padding:0">
+                <div class="panel panel-default" style="background-color:#DDDDDD">
+                    <div class="panel-heading" style="border-style: none;">
+                        <div class="title">
+                            <img src="/imgs/3title.png" class="img-responsive" />
+                            此登入畫面實做方法不好參考就好
+                            <!-- 大陸人士來臺觀光通報系統 -->
+                        </div>
+                    </div>
+                    <div class="panel-body" style="border-style:groove; border-width:thin; border-radius:5px; margin:5px; background-color:white;">
+                        <div class="col-xs-12 col-sm-6" id="img_Incident">
+                            <input type="submit" name="ImageButton1" value="手機案件通報" id="ImageButton1" class="btn btn-info btn-lg btn-block" />
+                        </div>
+                        <div class="col-xs-12 col-sm-6" id="img_Leave">
+                            <input type="submit" name="ImageLeave" value="手機離團通報" id="ImageLeave" class="btn btn-info btn-lg btn-block" />
+                        </div>
+                    </div>
+                    <div class="panel-body" style="border-style:groove; border-width:thin; border-radius:5px; margin:5px; background-color:white">
+                        <div class="form-group">
+                            <span id="Label1" class="control-label col-sm-3" style="font-size:Large;font-weight:bold;">帳號</span>
+                            <div class="col-sm-9">
+                                <input name="txtUserID" type="text" maxlength="20" id="txtUserID" class="form-control " />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span id="Label5" class="control-label col-sm-3" style="font-size:Large;font-weight:bold;">密碼</span>
+                            <div class="col-sm-9">
+                                <input name="txtPassword" type="password" maxlength="20" id="txtPassword" class="form-control" AUTOCOMPLETE="off" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <span id="Label6" class="control-label col-sm-3" style="font-size:Large;font-weight:bold;">驗證碼</span>
+                            <div class="col-sm-9">
+                                <input name="txtValidate" type="text" id="txtValidate" class="form-control" />
+                            </div>
+                            <div class="col-sm-offset-3 col-sm-9">
+                                <img id="img_validcode" src="Common/ValidateCode.aspx" alt="Validate Code" border="1" onclick="reloadpic()" style="padding-top: 5px;" />
+                            </div>
+                        </div>
+                        <div class="status" style="text-align: center">
+                            <span id="lblStatus">《 目前尚未登入 》</span>
+                        </div>
+                    </div>
+                    <div class="panel-footer" style="text-align: center;">
+                        <input type="submit" name="btnLogin" value="登入系統" id="btnLogin" class="btn btn-warning btn-lg" />
+                        <input type="submit" name="btnReset" value="重新輸入" onclick="btnreset_Click(); return false;" id="btnReset" class="btn btn-primary btn-lg" />
+                    </div>
+                </div>
+                <div class="col-md-12">
+                    <p class="question" style="margin-left:1em; text-indent:-1em; text-align:left">
+                        註１：導遊人員線上通報：請點選「手機案件通報」或「手機離團通報」（無須輸入帳號與密碼），並輸入導遊證號與觀光團號，系統將自動帶出相關資料。
+                    </p>
+                    <p class="question" style="margin-left:1em; text-indent:-1em; text-align:left">
+                        註２：如有通報任何相關問題，請電話洽0912-594353詢問，有專人為您服務。
+                    </p>
+                </div>
+                <p>&nbsp;</p>
+                <div class="col-md-12 warning">
+                    歡迎蒞臨交通部觀光局大陸人士來臺觀光通報系統，本系統屬於公務系統，基於資訊安全之考量，本網站僅支援IE8.0版本以上之瀏覽器，且使用者之IP位置與系統使用情形將會受到記錄。如遇無法登入或系統相關問題，請洽業務組承辦人鍾小姐，電話：(02)23491500#8241。
+                </div>
+                <div class="col-md-12 notes">
+                    This computer system, its network and data contained therein in proprietary. Access
+                    to this computer and network is restricted to persons and programs authorised by
+                    the business owner only. Access by others is prohibited and unauthorised, and is
+                    wrongful under law. Do not proceed if You are not authorised. Any unauthorised access
+                    will be prosecuted to the fullest extent of the law.
+                </div>
+            </div>
+            <div class="hidden-xs col-sm-2 col-md-3"></div><!-- aside -->
+        </form>
+
+    </div>
+</body>
+</html>

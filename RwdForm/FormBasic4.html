@@ -1,0 +1,291 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page - 我的 ASP.NET 應用程式</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/Site.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <script type="text/javascript">
+        function changeShoppingStoreLoc(newShoppingStoreLocId)
+        {
+            $(newShoppingStoreLocId).attr('disabled', !$(newShoppingStoreLocId).attr('disabled'));
+        }
+    </script>
+
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">遊艇申辦作業</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首頁</a></li>
+                    <li><a href="/Home/About">關於</a></li>
+                    <li><a href="/Home/Contact">連絡方式</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <!-- mainForm -->
+        <form id="mainForm" class="form-horizontal panel panel-default">
+            <!--====== capton ======-->
+            <div class="panel-heading">購物點變更通報</div>
+
+            <!--====== profile ======-->
+            <div class="panel-body">
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourGroupId">觀光團團號</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourGroupId" class="form-control-static">103222111</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourDate">在臺時間</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourDate" class="form-control-static">2013/04/01~2013/04/08</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="rdo_Type">通報別</label>
+                    <div class="col-sm-9">
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="INITIAL" checked>初報</label>
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="FOLLOW">續報</label>
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="CLOSE">結報</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_OCCUR_TIME"><span style="color:red">*</span>發生(變更)時間</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="txt_OCCUR_TIME">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_ANNOUNCE_DATE">通報時間</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="txt_ANNOUNCE_DATE">
+                    </div>
+                </div>
+            </div>
+
+            <!--====== 購物點變更通報 ======-->
+            <div class="panel-body">
+                <!-- nested panel -->
+                <div class="panel panel-info">
+                    <div class="panel-heading">
+                        <div class="row">
+                            <div class="col-xs-4 col-sm-3 col-md-2">
+                                <label class="control-label">日期</label>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-4">
+                                <label class="control-label">原始購物點</label>
+                            </div>
+                            <div class="col-xs-12 col-sm-offset-3 col-sm-9 col-md-offset-0 col-md-6">
+                                <label class="control-label">變更後購物點</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-body" style="padding-top:0; padding-bottom:0;">
+
+                        <div class="row" style="padding-bottom:5px;">
+                            <div class="col-xs-4 col-sm-3 col-md-2">
+                                <p class="form-control-static">2013/04/04</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-4">
+                                <p class="form-control-static">鼎鼎有茗</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-offset-3 col-sm-9 col-md-offset-0 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input type="checkbox" onclick="changeShoppingStoreLoc('#txtShoppingStoreLoc1');">
+                                    </span>
+                                    <input id="txtShoppingStoreLoc1" type="text" class="form-control" value="御品軒" disabled />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row bg-info" style="padding-bottom:5px;">
+                            <div class="col-xs-4 col-sm-3 col-md-2">
+                                <p class="form-control-static">2013/04/05</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-4">
+                                <p class="form-control-static">台北信義新天地</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-offset-3 col-sm-9 col-md-offset-0 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input type="checkbox" onclick="changeShoppingStoreLoc('#txtShoppingStoreLoc2');">
+                                    </span>
+                                    <input id="txtShoppingStoreLoc2" type="text" class="form-control" value="昇恆昌" disabled />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row" style="padding-bottom:5px;">
+                            <div class="col-xs-4 col-sm-3 col-md-2">
+                                <p class="form-control-static">2013/04/06</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-4">
+                                <p class="form-control-static">綺麗</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-offset-3 col-sm-9 col-md-offset-0 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input type="checkbox" onclick="changeShoppingStoreLoc('#txtShoppingStoreLoc3');">
+                                    </span>
+                                    <input id="txtShoppingStoreLoc3" type="text" class="form-control" value="" disabled />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row bg-info" style="padding-bottom:5px;">
+                            <div class="col-xs-4 col-sm-3 col-md-2">
+                                <p class="form-control-static">2013/04/07</p>
+                            </div>
+                            <div class="col-xs-8 col-sm-9 col-md-4">
+                                <p class="form-control-static">昇恆昌</p>
+                            </div>
+                            <div class="col-xs-12 col-sm-offset-3 col-sm-9 col-md-offset-0 col-md-6">
+                                <div class="input-group">
+                                    <span class="input-group-addon">
+                                        <input type="checkbox" onclick="changeShoppingStoreLoc('#txtShoppingStoreLoc4');">
+                                    </span>
+                                    <input id="txtShoppingStoreLoc4" type="text" class="form-control" value="" disabled />
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <!--====== 案件說明 & 旅客姓名名單======-->
+            <div class="panel-body">
+                <div class="form-group" style="margin-bottom:1em;">
+                    <label class="control-label col-sm-3" for="txt_CASE_EXPLAIN"><span style="color:red">*</span>案件說明</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" rows="5" id="txt_CASE_EXPLAIN"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="chkTourPassengerInfo">旅客姓名名單</label>
+                    <div class="col-sm-9" id="chkTourPassengerInfo">
+
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_0">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_0">
+                            001 毛
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_1">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_1">
+                            002 尹大一
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_2">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_2">
+                            003 王XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_3">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_3">
+                            004 耿XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_4">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_4">
+                            005 張XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_5">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_5">
+                            006 婁XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_6">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_6">
+                            007 胡XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_7">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_7">
+                            008 趙XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_8">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_8">
+                            009 劉水非
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_9">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_9">
+                            010 王XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_10">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_10">
+                            011 于XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_11">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_11">
+                            012 黃XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_12">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_12">
+                            013 褚XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_13">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_13">
+                            014 趙XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_14">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_14">
+                            015 李XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_15">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_15">
+                            016 邱大山二
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_16">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_16">
+                            017 戚XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_17">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_17">
+                            018 李XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_18">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_18">
+                            019 陳XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_19">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_19">
+                            020 劉XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_20">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_20">
+                            021 王貫中
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+
+            <!--====== 指令 ======-->
+            <div class="panel-footer" style="text-align:center">
+                <button type="submit" class="btn btn-primary btn-lg" name="btn_submit" id="btn_submit">送出</button>
+                <button type="submit" class="btn btn-default btn-lg" name="btn_cancel" id="btn_cancel" onclick="javascript:return confirm('確定要離開?');">關閉</button>
+            </div>
+
+        </form>        
+
+    </div>
+
+    <hr />
+    <footer>
+        <p>&copy; 2017 - 我的 ASP.NET 應用程式</p>
+    </footer>
+</body>
+</html>

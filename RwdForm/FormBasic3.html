@@ -1,0 +1,417 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page - 我的 ASP.NET 應用程式</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/Site.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">遊艇申辦作業</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首頁</a></li>
+                    <li><a href="/Home/About">關於</a></li>
+                    <li><a href="/Home/Contact">連絡方式</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+        <!--====== common modal: hotelPickModal ======-->
+        <div class="modal fade" id="hotelPickModal" role="dialog">
+            <form class="modal-dialog" name="hotelPickForm" id="hotelPickForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">選取飯店</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="請輸入飯店名稱">
+                            <span class="input-group-addon" style="padding:0;">
+                                <button class="btn btn-default" role="link" type="button">查詢</button>
+                            </span>
+                        </div>
+                        <ul class="list-group">
+                            <li class="list-group-item"><a href="#" class="btn-block">彩峰居</a></li>
+                            <li class="list-group-item"><a href="#" class="btn-block">小烏來山莊(特色民宿)</a></li>
+                            <li class="list-group-item"><a href="#" class="btn-block">福緣山莊</a></li>
+                            <li class="list-group-item"><a href="#" class="btn-block">北橫之星(特色民宿)</a></li>
+                            <li class="list-group-item"><a href="#" class="btn-block">象山農場</a></li>
+                            <li class="list-group-item"><a href="#" class="btn-block">瑞士鄉村</a></li>
+                            <li class="list-group-item"><a href="#" class="btn-block">馨雅民宿</a></li>
+                            <li class="list-group-item"><a href="#" class="btn-block">皇家民宿休閒中心</a></li>
+                        </ul>
+                        <div class="text-center">
+                            <ul class="pagination">
+                                <li><a href="#">&laquo;</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li><a href="#">&raquo;</a></li>
+                            </ul>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- mainForm -->
+        <form id="mainForm" class="form-horizontal panel panel-default">
+            <!--====== capton ======-->
+            <div class="panel-heading">住宿變更通報</div>
+
+            <!--====== profile ======-->
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourGroupId">觀光團團號</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourGroupId" class="form-control-static">103222111</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourDate">在臺時間</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourDate" class="form-control-static">2013/04/01~2013/04/08</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="rdo_Type">通報別</label>
+                    <div class="col-sm-9">
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="INITIAL" checked>初報</label>
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="FOLLOW">續報</label>
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="CLOSE">結報</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_OCCUR_TIME"><span style="color:red">*</span>發生(變更)時間</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="txt_OCCUR_TIME">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_ANNOUNCE_DATE">通報時間</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="txt_ANNOUNCE_DATE">
+                    </div>
+                </div>
+            </div>
+
+            <!--====== 住宿變更通報 ======-->
+            <div class="panel-body">
+                <div class="panel-group">
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" href="#hotelCollapse11" class="btn-block">
+                                <label>04/01 小烏來山莊(特色民宿)&nbsp;<span class="badge">!</span></label>
+                            </a>
+                        </div>
+                        <div id="hotelCollapse11" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>日期</dt>
+                                    <dd class="text-primary">20130401</dd>
+                                    <dt>原始飯店</dt>
+                                    <dd class="text-primary">台北華國大飯店(5星)</dd>
+                                    <dd class="text-primary">臺北市中山區</dd>
+                                    <dd class="text-primary">02-2596-511</dd>
+                                    <dt>變更飯店</dt>
+                                    <dd class="text-info">小烏來山莊(特色民宿)</dd>
+                                    <dd class="text-info">桃園縣復興鄉</dd>
+                                    <dd class="text-info">03-3822877</dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#hotelPickModal">住宿</button>
+                                    <button type="button" class="btn btn-default">清除</button>
+                                    <button type="button" class="btn btn-default">不住宿</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" href="#hotelCollapse12" class="btn-block">
+                                <label>04/01 台北華國大飯店(5星)</label>
+                            </a>
+                        </div>
+                        <div id="hotelCollapse12" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>日期</dt>
+                                    <dd class="text-primary">20130401</dd>
+                                    <dt>原始飯店</dt>
+                                    <dd class="text-primary">台北華國大飯店(5星)</dd>
+                                    <dd class="text-primary">臺北市中山區</dd>
+                                    <dd class="text-primary">02-2596-511</dd>
+                                    <dt>變更飯店</dt>
+                                    <dd class="text-info"></dd>
+                                    <dd class="text-info"></dd>
+                                    <dd class="text-info"></dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#hotelPickModal">住宿</button>
+                                    <button type="button" class="btn btn-default">清除</button>
+                                    <button type="button" class="btn btn-default">不住宿</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" href="#hotelCollapse13" class="btn-block">
+                                <label>04/02 花蓮翰品酒店&nbsp;<span class="badge">!</span></label>
+                            </a>
+                        </div>
+                        <div id="hotelCollapse13" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>日期</dt>
+                                    <dd class="text-primary">20130402</dd>
+                                    <dt>原始飯店</dt>
+                                    <dd class="text-primary">鎮寶大飯店</dd>
+                                    <dd class="text-primary">南投縣埔里鎮</dd>
+                                    <dd class="text-primary">049-2903333</dd>
+                                    <dt>變更飯店</dt>
+                                    <dd class="text-info">花蓮翰品酒店</dd>
+                                    <dd class="text-info">花蓮縣花蓮市</dd>
+                                    <dd class="text-info">03-8235-3889</dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#hotelPickModal">住宿</button>
+                                    <button type="button" class="btn btn-default">清除</button>
+                                    <button type="button" class="btn btn-default">不住宿</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" href="#hotelCollapse14" class="btn-block">
+                                <label>04/03 櫻山大飯店</label>
+                            </a>
+                        </div>
+                        <div id="hotelCollapse14" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>日期</dt>
+                                    <dd class="text-primary">20130403</dd>
+                                    <dt>原始飯店</dt>
+                                    <dd class="text-primary">櫻山大飯店</dd>
+                                    <dd class="text-primary">嘉義縣阿里山鄉</dd>
+                                    <dd class="text-primary">05-2679803</dd>
+                                    <dt>變更飯店</dt>
+                                    <dd class="text-info"></dd>
+                                    <dd class="text-info"></dd>
+                                    <dd class="text-info"></dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#hotelPickModal">住宿</button>
+                                    <button type="button" class="btn btn-default">清除</button>
+                                    <button type="button" class="btn btn-default">不住宿</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" href="#hotelCollapse15" class="btn-block">
+                                <label>04/04 立多商旅</label>
+                            </a>
+                        </div>
+                        <div id="hotelCollapse15" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>日期</dt>
+                                    <dd class="text-primary">20130404</dd>
+                                    <dt>原始飯店</dt>
+                                    <dd class="text-primary">立多商旅</dd>
+                                    <dd class="text-primary">高雄市三民區</dd>
+                                    <dd class="text-primary">07-3233889</dd>
+                                    <dt>變更飯店</dt>
+                                    <dd class="text-info"></dd>
+                                    <dd class="text-info"></dd>
+                                    <dd class="text-info"></dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#hotelPickModal">住宿</button>
+                                    <button type="button" class="btn btn-default">清除</button>
+                                    <button type="button" class="btn btn-default">不住宿</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel panel-info">
+                        <div class="panel-heading">
+                            <a data-toggle="collapse" href="#hotelCollapse16" class="btn-block">
+                                <label>04/05 亞灣飯店(2星)</label>
+                            </a>
+                        </div>
+                        <div id="hotelCollapse16" class="panel-collapse collapse">
+                            <div class="panel-body">
+                                <dl class="dl-horizontal">
+                                    <dt>日期</dt>
+                                    <dd class="text-primary">20130405</dd>
+                                    <dt>原始飯店</dt>
+                                    <dd class="text-primary">亞灣飯店(2星)</dd>
+                                    <dd class="text-primary">臺東縣卑南鄉</dd>
+                                    <dd class="text-primary">089-510007</dd>
+                                    <dt>變更飯店</dt>
+                                    <dd class="text-info"></dd>
+                                    <dd class="text-info"></dd>
+                                    <dd class="text-info"></dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#hotelPickModal">住宿</button>
+                                    <button type="button" class="btn btn-default">清除</button>
+                                    <button type="button" class="btn btn-default">不住宿</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!--====== 案件說明 & 旅客姓名名單======-->
+            <div class="panel-body">
+                <div class="form-group" style="margin-bottom:1em;">
+                    <label class="control-label col-sm-3" for="txt_CASE_EXPLAIN"><span style="color:red">*</span>案件說明</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" rows="5" id="txt_CASE_EXPLAIN"></textarea>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="chkTourPassengerInfo">旅客姓名名單</label>
+                    <div class="col-sm-9" id="chkTourPassengerInfo">
+
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_0">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_0">
+                            001 毛
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_1">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_1">
+                            002 尹大一
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_2">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_2">
+                            003 王XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_3">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_3">
+                            004 耿XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_4">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_4">
+                            005 張XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_5">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_5">
+                            006 婁XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_6">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_6">
+                            007 胡XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_7">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_7">
+                            008 趙XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_8">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_8">
+                            009 劉水非
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_9">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_9">
+                            010 王XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_10">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_10">
+                            011 于XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_11">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_11">
+                            012 黃XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_12">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_12">
+                            013 褚XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_13">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_13">
+                            014 趙XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_14">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_14">
+                            015 李XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_15">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_15">
+                            016 邱大山二
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_16">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_16">
+                            017 戚XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_17">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_17">
+                            018 李XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_18">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_18">
+                            019 陳XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_19">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_19">
+                            020 劉XX
+                        </label>
+                        <label class="form-check-inline col-xs-6 col-sm-4" for="chkTourPassengerInfo_20">
+                            <input class="form-check-input" type="checkbox" id="chkTourPassengerInfo_20">
+                            021 王貫中
+                        </label>
+
+                    </div>
+                </div>
+            </div>
+
+
+            <!--====== 指令 ======-->
+            <div class="panel-footer" style="text-align:center">
+                <button type="submit" class="btn btn-primary btn-lg" name="btn_submit" id="btn_submit">送出</button>
+                <button type="submit" class="btn btn-default btn-lg" name="btn_cancel" id="btn_cancel" onclick="javascript:return confirm('確定要離開?');">關閉</button>
+            </div>
+
+        </form>       
+
+    </div>
+
+    <hr />
+    <footer>
+        <p>&copy; 2017 - 我的 ASP.NET 應用程式</p>
+    </footer>
+</body>
+</html>

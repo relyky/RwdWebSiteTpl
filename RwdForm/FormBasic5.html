@@ -1,0 +1,777 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page - 我的 ASP.NET 應用程式</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/Site.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">遊艇申辦作業</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首頁</a></li>
+                    <li><a href="/Home/About">關於</a></li>
+                    <li><a href="/Home/Contact">連絡方式</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <!--====== common modal: carEditModal ======-->
+        <div class="modal fade" id="carEditModal" role="dialog">
+            <form class="modal-dialog form-horizontal" name="carEditForm" id="carEditForm">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">車別編輯</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" style="margin-bottom:5px;">
+                            <label class="control-label col-sm-3" for="txtTourDate">車別</label>
+                            <div class="col-sm-9">
+                                <p class="form-control-static">第1車</p>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom:5px;">
+                            <label class="control-label col-sm-3" for="txtTourDate">原始車輛</label>
+                            <div class="col-sm-9">
+                                <label class="radio-inline"><input type="radio" name="ucMappingType" value="1">遊覽車</label>
+                                <label class="radio-inline"><input type="radio" name="ucMappingType" value="2">租賃車</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">車號</div>
+                                    <input type="text" class="form-control" placeholder="車牌號碼">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom:5px;">
+                            <label class="control-label col-sm-3" for="txtTourDate">遊覽車駕駛</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon">證號</div>
+                                    <input type="text" class="form-control" placeholder="登記證號">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">姓名</div>
+                                    <input type="text" class="form-control" placeholder="姓名">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">手機</div>
+                                    <input type="text" class="form-control" placeholder="手機">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom:5px;">
+                            <label class="control-label col-sm-3" for="txtTourDate">本導導遊</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon">證號</div>
+                                    <input type="text" class="form-control" placeholder="登記證號">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">姓名</div>
+                                    <input type="text" class="form-control" placeholder="姓名">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">手機</div>
+                                    <input type="text" class="form-control" placeholder="手機">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row" style="margin-bottom:5px;">
+                            <label class="control-label col-sm-3" for="txtTourDate">離導導遊</label>
+                            <div class="col-sm-9">
+                                <div class="input-group">
+                                    <div class="input-group-addon">證號</div>
+                                    <input type="text" class="form-control" placeholder="登記證號">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">姓名</div>
+                                    <input type="text" class="form-control" placeholder="姓名">
+                                </div>
+                                <div class="input-group">
+                                    <div class="input-group-addon">手機</div>
+                                    <input type="text" class="form-control" placeholder="手機">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">&nbsp;&nbsp;取消&nbsp;&nbsp;</button>
+                        <button type="button" class="btn btn-primary">&nbsp;&nbsp;確認&nbsp;&nbsp;</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!--====== form ======-->
+        <form id="mainForm" class="form-horizontal panel panel-default">
+            <!--====== capton ======-->
+            <div class="panel-heading">分車通報</div>
+
+            <!--====== profile ======-->
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourGroupId">觀光團團號</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourGroupId" class="form-control-static">103222111</p>
+                    </div>
+                </div>
+                <!--<div class="form-group">
+                    <label class="control-label col-sm-3" for="txtGuideId">導遊證號</label>
+                    <div class="col-sm-9">
+                        <p id="txtGuideId" class="form-control-static">B121681678</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtGuideName">導遊姓名</label>
+                    <div class="col-sm-9">
+                        <p id="txtGuideName" class="form-control-static">蔣XX</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTravelAgencyName">接待旅行社</label>
+                    <div class="col-sm-9">
+                        <p id="txtTravelAgencyName" class="form-control-static">環遊國際旅行社</p>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourDate">在臺時間</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourDate" class="form-control-static">2013/04/01~2013/04/08</p>
+                    </div>
+                </div>
+                <!--<div class="form-group">
+                    <label class="control-label col-sm-3" for="txtCreator">報告人</label>
+                    <div class="col-sm-9">
+                        <p id="txtCreator" class="form-control-static">劉無非</p>
+                    </div>
+                </div>-->
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="rdo_Type">通報別</label>
+                    <div class="col-sm-9">
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="INITIAL" checked>初報</label>
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="FOLLOW">續報</label>
+                        <label class="radio-inline"><input type="radio" name="rdo_Type" value="CLOSE">結報</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_OCCUR_TIME"><span style="color:red">*</span>帶團開始時間</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="txt_OCCUR_TIME">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_ANNOUNCE_DATE">通報時間</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="txt_ANNOUNCE_DATE">
+                    </div>
+                </div>
+
+                <!--====== 案件說明 ======-->
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_CASE_EXPLAIN"><span style="color:red">*</span>案件說明</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" rows="5" id="txt_CASE_EXPLAIN"></textarea>
+                    </div>
+                </div>
+            </div>
+
+            <!--====== 車次 & 座位分配 ======-->
+            <div class="panel-group" id="accordion01">
+                <!--=== 車次 PANEL ===-->
+                <a name="accordionCollapse01_anchor"></a> <!-- 定錨 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" data-parent="#accordion01" href="#accordionCollapse01" class="btn-block">
+                            <label>車次</label>
+                        </a>
+                    </div>
+                    <div id="accordionCollapse01" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <!--=== 車次 BEGIN===-->
+                            <button type="button" class="btn btn-warning pull-right" data-toggle="modal" data-target="#carEditModal"
+                                    id="btnAddCar">
+                                新增車別
+                            </button>
+                            <!--=== 車次 END ===-->
+                        </div>
+                        <!--=== 車次 BEGIN : Collapsible List Group ===-->
+                        <ul class="list-group">
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt>車別</dt>
+                                    <dd class="text-primary">第1車</dd>
+                                    <dt>原始車輛</dt>
+                                    <dd class="text-primary">132-QQ&nbsp;<label class="label label-info">遊覽車</label></dd>
+                                    <dt>遊覽車駕駛</dt>
+                                    <dd class="text-primary">王駕駛 A123456789</dd>
+                                    <dt>本導導遊</dt>
+                                    <dd class="text-primary">馬導遊 B123456789</dd>
+                                    <dd class="text-primary">0988123456</dd>
+                                    <dt>離導導遊</dt>
+                                    <dd class="text-primary">吳離導 C123456789</dd>
+                                    <dd class="text-primary">0988111222</dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#carEditModal">編輯車別</button>
+                                    <button type="button" class="btn btn-default" onclick="javascript:return confirm('確定要刪除?');">刪除</button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt>車別</dt>
+                                    <dd class="text-primary">第2車</dd>
+                                    <dt>原始車輛</dt>
+                                    <dd class="text-primary">132-QQ&nbsp;<label class="label label-default">租賃車</label></dd>
+                                    <dt>遊覽車駕駛</dt>
+                                    <dd class="text-primary">王駕駛 A123456789</dd>
+                                    <dt>本導導遊</dt>
+                                    <dd class="text-primary">馬導遊 B123456789</dd>
+                                    <dd class="text-primary">0988123456</dd>
+                                    <dt>離導導遊</dt>
+                                    <dd class="text-primary">吳離導 C123456789</dd>
+                                    <dd class="text-primary">0988111222</dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#carEditModal">編輯車別</button>
+                                    <button type="button" class="btn btn-default" onclick="javascript:return confirm('確定要刪除?');">刪除</button>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <dl class="dl-horizontal">
+                                    <dt>車別</dt>
+                                    <dd class="text-primary">第3車</dd>
+                                    <dt>原始車輛</dt>
+                                    <dd class="text-primary"></dd>
+                                    <dt>遊覽車駕駛</dt>
+                                    <dd class="text-primary"></dd>
+                                    <dt>本導導遊</dt>
+                                    <dd class="text-primary"></dd>
+                                    <dd class="text-primary"></dd>
+                                    <dt>離導導遊</dt>
+                                    <dd class="text-primary"></dd>
+                                    <dd class="text-primary"></dd>
+                                </dl>
+                                <div class="text-center">
+                                    <button type="button" class="btn btn-default" data-toggle="modal" data-target="#carEditModal">編輯車別</button>
+                                    <button type="button" class="btn btn-default" onclick="javascript:return confirm('確定要刪除?');">刪除</button>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--=== 車次 END ===-->
+                    </div>
+                </div>
+                <!--=== 座位分配 PANEL ===-->
+                <a name="accordionCollapse02_anchor"></a> <!-- 定錨 -->
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <a data-toggle="collapse" data-parent="#accordion01" href="#accordionCollapse02" class="btn-block">
+                            <label>座位分配</label>
+                        </a>
+                    </div>
+                    <div id="accordionCollapse02" class="panel-collapse collapse">
+                        <!--=== 座位分配 BEGIN : Collapsible List Group ===-->
+                        <ul class="list-group">
+                            <li class="list-group-item">
+
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <label class="control-label text-nowrap">序號</label>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <label class="control-label">姓名</label>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <label class="control-label">備註</label>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="control-label">車別</label>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="list-group-item">
+
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">1</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">毛ＸＸ</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">領隊(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl01_rblCar" value="0" class="asvt_label_radio">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl01_rblCar" value="1" class="asvt_label_radio">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl01_rblCar" value="2" class="asvt_label_radio">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl01_rblCar" value="3" class="asvt_label_radio">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl01_rblCar" value="4" class="asvt_label_radio">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl01_rblCar" value="5" class="asvt_label_radio">第5車</label>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="list-group-item">
+
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">2</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">尹大一</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">入境(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl02_rblCar" value="0" class="asvt_label_radio">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl02_rblCar" value="1" class="asvt_label_radio">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl02_rblCar" value="2" class="asvt_label_radio">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl02_rblCar" value="3" class="asvt_label_radio">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl02_rblCar" value="4" class="asvt_label_radio">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl02_rblCar" value="5" class="asvt_label_radio">第5車</label>
+                                    </div>
+                                </div>
+
+                            </li>
+                            <li class="list-group-item">
+
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">3</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl03_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl03_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl03_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl03_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl03_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl03_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+
+                            </li>
+
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">4</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl04_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl04_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl04_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl04_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl04_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl04_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">5</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl05_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl05_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl05_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl05_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl05_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl05_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">6</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl06_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl06_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl06_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl06_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl06_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl06_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">7</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl07_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl07_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl07_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl07_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl07_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl07_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">8</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl08_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl08_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl08_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl08_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl08_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl08_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">9</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">劉水非</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl09_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl09_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl09_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl09_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl09_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl09_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">10</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl10_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl10_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl10_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl10_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl10_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl10_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">11</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl11_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl11_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl11_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl11_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl11_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl11_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">12</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl12_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl12_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl12_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl12_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl12_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl12_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">13</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl13_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl13_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl13_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl13_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl13_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl13_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">14</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl14_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl14_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl14_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl14_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl14_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl14_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">15</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl15_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl15_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl15_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl15_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl15_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl15_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">16</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">邱大山二</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl16_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl16_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl16_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl16_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl16_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl16_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">17</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">戚XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl17_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl17_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl17_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl17_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl17_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl17_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">18</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">李XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl18_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl18_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl18_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl18_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl18_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl18_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">19</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">陳XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl19_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl19_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl19_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl19_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl19_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl19_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">20</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">劉XX</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl20_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl20_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl20_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl20_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl20_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl20_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                            <li class="list-group-item">
+                                <div class="row">
+                                    <div class="col-xs-2 col-sm-2 col-md-1">
+                                        <p class="form-control-static">21</p>
+                                    </div>
+                                    <div class="col-xs-4 col-sm-4 col-md-2">
+                                        <p class="form-control-static">王貫中</p>
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-3">
+                                        <p class="form-control-static">(未入境)</p>
+                                    </div>
+                                    <div class="col-xs-12 col-sm-12 col-md-6 radio">
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl21_rblCar" class="asvt_label_radio" value="0">未分配</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl21_rblCar" class="asvt_label_radio" value="1">第1車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl21_rblCar" class="asvt_label_radio" value="2">第2車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl21_rblCar" class="asvt_label_radio" value="3">第3車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl21_rblCar" class="asvt_label_radio" value="4">第4車</label>
+                                        <label class="radio-inline"><input type="radio" name="gvPassenger_ctl21_rblCar" class="asvt_label_radio" value="5">第5車</label>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                        <!--=== 座位分配 END ===-->
+                    </div>
+                </div>
+            </div>
+
+            <!--====== 指令 ======-->
+            <div class="panel-footer" style="text-align:center">
+                <button type="submit" class="btn btn-primary btn-lg" name="btn_submit" id="btn_submit">送出</button>
+                <button type="submit" class="btn btn-default btn-lg" name="btn_cancel" id="btn_cancel" onclick="javascript:return confirm('確定要離開?');">關閉</button>
+            </div>
+
+        </form>     
+
+    </div>
+
+    <hr />
+    <footer>
+        <p>&copy; 2017 - 我的 ASP.NET 應用程式</p>
+    </footer>
+</body>
+</html>

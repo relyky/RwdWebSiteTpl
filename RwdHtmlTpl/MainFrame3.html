@@ -1,0 +1,139 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Mainframe Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/sidebar-modal.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <style>
+        .affix + .container-fluid {
+            padding-top: 70px; /* 緩衝 70px */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Modal -->
+    <div class="modal left fade" id="leftMenuModal" tabindex="-1" role="dialog" aria-labelledby="leftMenuLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <!-- Brand -->
+                    <h4 class="modal-title" id="myModalLabel2"><span class="glyphicon glyphicon-th-large"></span>&nbsp;系統選單</h4>
+                </div>
+                <div class="modal-body">
+                    <!-- System menu -->
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="bsHome.aspx"><span class="glyphicon glyphicon-home"></span>&nbsp;主畫面</a></li>
+                        <li><a href="bsIntro.aspx"><span class="glyphicon glyphicon-home"></span>&nbsp;系統簡介</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Menu 1</a></li>
+                        <li><a href="bsTest.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;bsTest</a></li>
+                        <li><a href="bsTest2.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;住宿通報樣板(bsTest2)</a></li>
+                        <li><a href="bsTest9.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;購物點變更通報樣板(bsTest9)</a></li>
+                        <li><a href="bsTest8.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;分車通報(bsTest8)</a></li>
+                        <li><a href="bsTest3.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;基本表單(bsTest3)</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign Up</a></li>
+                        <li><a href="bsLogin.aspx"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Log in</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Log out</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;上一頁</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;下一頁</a></li>
+                    </ul>
+                </div>
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+    <!-- Modal -->
+    <div class="modal right fade" id="rightMenuModal" tabindex="-1" role="dialog" aria-labelledby="rightMenuLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <!-- Brand -->
+                    <h4 class="modal-title" id="rightMenuModalLabel"><span class="glyphicon glyphicon-th-large"></span>&nbsp;系統選單</h4>
+                </div>
+
+                <div class="modal-body">
+                    <!-- System menu -->
+                    <ul class="nav nav-pills nav-stacked">
+                        <li><a href="bsHome.aspx"><span class="glyphicon glyphicon-home"></span>&nbsp;主畫面</a></li>
+                        <li><a href="bsIntro.aspx"><span class="glyphicon glyphicon-home"></span>&nbsp;系統簡介</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;Menu 1</a></li>
+                        <li><a href="bsTest.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;bsTest</a></li>
+                        <li><a href="bsTest2.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;住宿通報樣板(bsTest2)</a></li>
+                        <li><a href="bsTest9.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;購物點變更通報樣板(bsTest9)</a></li>
+                        <li><a href="bsTest8.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;分車通報(bsTest8)</a></li>
+                        <li><a href="bsTest3.aspx"><span class="glyphicon glyphicon-list-alt"></span>&nbsp;基本表單(bsTest3)</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span>&nbsp;Sign Up</a></li>
+                        <li><a href="bsLogin.aspx"><span class="glyphicon glyphicon-log-in"></span>&nbsp;Log in</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span>&nbsp;Log out</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-arrow-left"></span>&nbsp;上一頁</a></li>
+                        <li><a href="#"><span class="glyphicon glyphicon-arrow-right"></span>&nbsp;下一頁</a></li>
+                    </ul>
+                </div>
+
+            </div><!-- modal-content -->
+        </div><!-- modal-dialog -->
+    </div><!-- modal -->
+
+    <!-- #Affix -->
+    <div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;">
+        <!-- 200px -->
+        <h1>Bootstrap Affix Example</h1>
+        <h3>[來張圖吧]</h3>
+    </div>
+
+    <!-- #Banner -->
+    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197" style="top:0; width:100%;">
+        <!-- 200px - 3px -->
+        <button type="button" class="btn btn-danger pull-left" 
+                data-toggle="modal" data-target="#leftMenuModal"
+                style="margin-top:6px; margin-left:10px;">
+                &nbsp;<span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;
+        </button>
+        <a class="navbar-brand" href="#">WebSiteName</a>
+        <button type="button" class="btn btn-danger pull-right" 
+                data-toggle="modal" data-target="#rightMenuModal"
+                style="margin-top:6px; margin-right:10px;">
+                &nbsp;<span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;
+        </button>
+    </nav>
+
+    <div class="container-fluid">
+
+        <!-- #Content -->
+        <div id="body-content" class="container" style="border:solid; color:darkgreen;">
+            <h1 style="text-align:center">CONTENT</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+        </div>
+
+    </div>
+
+    <!-- #Footer -->
+    <footer class="container-fluid" style="text-align:center;">
+        <hr />
+        <p class="text-muted">
+            All the contents of this Website are protected by Copyright Laws and International Trade Agreements.<br />
+            Copyright ©2002 Asia Vista Technology, Inc. All rights reserved..
+        </p>
+    </footer>
+</body>
+</html>

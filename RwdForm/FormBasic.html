@@ -1,0 +1,176 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page - 我的 ASP.NET 應用程式</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/Site.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">遊艇申辦作業</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首頁</a></li>
+                    <li><a href="/Home/About">關於</a></li>
+                    <li><a href="/Home/Contact">連絡方式</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <!-- mainForm -->
+        <form id="mainForm" class="form-horizontal panel panel-default">
+
+            <div class="panel-heading">基本表單樣板</div>
+
+            <!-- form fields -->
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourGroupId">觀光團團號</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourGroupId" class="form-control-static">103222111</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtGuideId">導遊證號</label>
+                    <div class="col-sm-9">
+                        <input type="text" class="form-control" id="txtGuideId" placeholder="請輸入導遊證號" style="font-size:1em;" maxlength="10" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtEmail">Email</label>
+                    <div class="col-sm-9">
+                        <input type="email" class="form-control" id="txtEmail" placeholder="Enter email" style="font-size:1em;" />
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="rdo_Type">通報別</label>
+                    <div class="col-sm-9 radio" style="padding-top:0;">
+                        <label class="radio-inline asvt_bg_yellow">
+                            <input type="radio" name="rdo_Type" value="INITIAL" class="asvt_label_radio" checked>初報
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rdo_Type" value="FOLLOW" class="asvt_label_radio">續報
+                        </label>
+                        <label class="radio-inline">
+                            <input type="radio" name="rdo_Type" value="CLOSE" class="asvt_label_radio">結報
+                        </label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_OCCUR_TIME"><span style="color:red">*</span>發生(變更)時間</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="txt_OCCUR_TIME" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txt_ANNOUNCE_DATE">通報時間</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="datetime-local" value="2011-08-19T13:45:00" id="txt_ANNOUNCE_DATE" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtNumberDemo">人數</label>
+                    <div class="col-sm-9">
+                        <input class="form-control" type="number" value="12" id="txtNumberDemo" min="0" max="99" />
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtCheckBoxDemo">餐點</label>
+                    <div class="col-sm-9">
+                        <label class="checkbox-inline">
+                            <input type="checkbox" value="早餐" class="asvt_label_checkbox">早餐
+                        </label>
+                        <label class="checkbox-inline asvt_bg_yellow">
+                            <input type="checkbox" value="午餐" class="asvt_label_checkbox" checked>午餐
+                        </label>
+                        <label class="checkbox-inline">
+                            <input type="checkbox" value="晚餐" class="asvt_label_checkbox">晚餐
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtSelectDemo">出境機場</label>
+                    <div class="col-sm-9">
+                        <select class="form-control" id="txtSelectDemo">
+                            <option value="">請選擇</option>
+                            <option value="01">桃園機場</option>
+                            <option value="02">高雄機場</option>
+                            <option value="03">基隆港</option>
+                            <option value="04">台中港</option>
+                            <option value="05">高雄港</option>
+                            <option value="06">花蓮港</option>
+                            <option value="07">蘇澳港</option>
+                            <option value="08">澎湖港</option>
+                            <option value="09">台南機場</option>
+                            <option value="10">安平港</option>
+                            <option value="11">松山機場</option>
+                            <option value="12">桃園二期</option>
+                            <option value="13">金門港</option>
+                            <option value="14">馬祖港</option>
+                            <option value="15">花蓮機場</option>
+                            <option value="16">麥寮港</option>
+                            <option value="17">馬公機場</option>
+                            <option value="18">台中機場</option>
+                            <option value="19">和平港</option>
+                            <option value="20">金門機場</option>
+                            <option value="21">南竿機場</option>
+                            <option value="22">北竿機場</option>
+                            <option value="23">嘉義機場</option>
+                            <option value="24">台北港</option>
+                            <option value="25">東港</option>
+                            <option value="26">台東機場</option>
+                            <option value="27">北竿白沙港</option>
+                            <option value="28">布袋港</option>
+                            <option value="29">料羅碼頭</option>
+                            <option value="ZZ">未定</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom:1em;">
+                    <label class="control-label col-sm-3" for="txt_CASE_EXPLAIN"><span style="color:red">*</span>案件說明</label>
+                    <div class="col-sm-9">
+                        <textarea class="form-control" rows="5" id="txt_CASE_EXPLAIN"></textarea>
+                    </div>
+                </div>
+
+                <p style="color:red;text-align:center;">
+                    註：此例將字體放大兩倍。正常來說不需要，但老年人很需要。
+                </p>
+
+            </div>
+
+            <!-- 指令 -->
+            <div class="panel-footer" style="text-align:center">
+                <button type="submit" class="btn btn-primary" name="btn_submit" id="btn_submit">&nbsp;&nbsp;送出&nbsp;&nbsp;</button>
+                <button type="submit" class="btn btn-default" name="btn_cancel" id="btn_cancel" onclick="javascript:return confirm('確定要離開?');">&nbsp;&nbsp;關閉&nbsp;&nbsp;</button>
+            </div>
+        </form>
+
+    </div>
+
+    <hr />
+    <footer>
+        <p>&copy; 2017 - 我的 ASP.NET 應用程式</p>
+    </footer>
+</body>
+</html>

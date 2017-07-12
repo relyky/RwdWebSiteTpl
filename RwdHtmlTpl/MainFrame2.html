@@ -1,0 +1,67 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Mainframe Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <style>
+        .affix + .container-fluid {
+            padding-top: 70px; /* 緩衝 70px */
+        }
+    </style>
+</head>
+<body>
+
+    <!-- #Affix -->
+    <div class="container-fluid" style="background-color:#F44336;color:#fff;height:200px;">
+        <!-- 200px -->
+        <h1>Bootstrap Affix Example</h1>
+        <h3>[來張圖吧]</h3>
+    </div>
+
+    <!-- #Banner -->
+    <nav class="navbar navbar-inverse" data-spy="affix" data-offset-top="197" style="top:0; width:100%;">
+        <!-- 200px - 3px -->
+        <button class="btn btn-danger pull-left" style="margin-top:6px; margin-left:10px;">
+            &nbsp;<span class="glyphicon glyphicon-menu-hamburger"></span>&nbsp;
+        </button>
+        <a class="navbar-brand" href="#">WebSiteName</a>
+        <button class="btn btn-danger pull-right" style="margin-top:6px; margin-right:10px;">
+            &nbsp;<span class="glyphicon glyphicon glyphicon-option-vertical"></span>&nbsp;
+        </button>
+    </nav>
+
+    <div class="container-fluid">
+
+        <!-- #Content -->
+        <div id="body-content" class="container" style="border:solid; color:darkgreen;">
+            <h1 style="text-align:center">CONTENT</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+        </div>
+
+    </div>
+
+    <!-- #Footer -->
+    <footer class="container-fluid" style="text-align:center;">
+        <hr />
+        <p class="text-muted">
+            All the contents of this Website are protected by Copyright Laws and International Trade Agreements.<br />
+            Copyright ©2002 Asia Vista Technology, Inc. All rights reserved..
+        </p>
+    </footer>
+</body>
+</html>

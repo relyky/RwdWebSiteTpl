@@ -1,0 +1,144 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page - 我的 ASP.NET 應用程式</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/Site.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+</head>
+<body>
+    <div class="navbar navbar-default">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="/">遊艇申辦作業</a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li><a href="/">首頁</a></li>
+                    <li><a href="/Home/About">關於</a></li>
+                    <li><a href="/Home/Contact">連絡方式</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+
+        <!-- mainForm -->
+        <form id="mainForm" class="form-horizontal panel panel-default">
+
+            <!-- caption -->
+            <div class="panel-heading">主畫面</div>
+
+            <!-- profile -->
+            <div class="panel-body">
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtCreator">報告人</label>
+                    <div class="col-sm-9">
+                        <p id="txtCreator" class="form-control-static">劉無非</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourGroupId">觀光團團號</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourGroupId" class="form-control-static">103222111</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtGuideId">隨團導遊證</label>
+                    <div class="col-sm-9">
+                        <p id="txtGuideId" class="form-control-static">B121681678</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtGuideName">導遊姓名</label>
+                    <div class="col-sm-9">
+                        <p id="txtGuideName" class="form-control-static">蔣XX</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTravelAgencyName">接待旅行社</label>
+                    <div class="col-sm-9">
+                        <p id="txtTravelAgencyName" class="form-control-static">環遊國際旅行社</p>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-3" for="txtTourDate">在臺時間</label>
+                    <div class="col-sm-9">
+                        <p id="txtTourDate" class="form-control-static">2013/04/01~2013/04/08</p>
+                    </div>
+                </div>
+            </div>
+
+            <p style="color:red;text-align:center;">
+                註：此例將字體放大兩倍。.btn 的字數若超過將以３個小數點"..."取代。
+            </p>
+
+            <!-- 案件通報選單 -->
+            <div class="panel-heading">案件通報</div>
+
+            <div class="panel-body" style="padding:10px 3px 10px 3px;">
+
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAwaySubject">傷病/探親通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="bsTest2.aspx" name="btnAnnounceSubject0">住宿變更通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="bsTest9.aspx" name="btnAnnounceSubject9">購物點變更通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject10">車輛及駕駛變更通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject1">導遊變更通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject3">緊急事故通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject4">治安案件通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject6">疫情通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject11">旅遊糾紛通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject8">分車通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;" ">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject12">隨團旅遊通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject5">違法/違規/逾期停留通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubject7">其他通報</a>
+                </div>
+                <div class="col-xs-6 col-sm-4" style="margin-bottom:10px; padding:3px;">
+                    <a class="btn btn-primary btn-block" href="#" name="btnAnnounceSubjectQry">通報記錄查詢</a>
+                </div>
+            </div>
+
+        </form>
+
+    </div>
+
+    <hr />
+    <footer>
+        <p>&copy; 2017 - 我的 ASP.NET 應用程式</p>
+    </footer>
+</body>
+</html>

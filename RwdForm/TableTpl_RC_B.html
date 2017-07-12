@@ -1,0 +1,292 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Home Page - 我的 ASP.NET 應用程式</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <style type="text/css">
+        /*
+        Document   : no-more-tables
+        Created on : 28/02/2012, 11:01:54 AM
+        Author     : Simon Elvery
+        Description:
+        Demonstration of the responsive tables method described at by Chris Coyier
+        at http://css-tricks.com/responsive-data-tables/
+        加一些小改良
+        */
+
+        /* 手機模式：寬螢寬度小於 768px。 */
+        @media only screen and (max-width: 767px) {
+
+            /* Force table to not be like tables anymore */
+            #no-more-tables table,
+            #no-more-tables thead,
+            #no-more-tables tbody,
+            #no-more-tables th,
+            #no-more-tables td,
+            #no-more-tables tr {
+                display: block;
+            }
+
+            /* Hide table headers (but not display: none;, for accessibility) */
+            #no-more-tables thead tr {
+                position: absolute;
+                top: -9999px;
+                left: -9999px;
+            }
+
+            #no-more-tables tr {
+                border: 1px solid #ccc;
+            }
+
+            #no-more-tables td {
+                /* Behave  like a "row" */
+                border: none;
+                border-bottom: 1px solid #eee;
+                position: relative;
+                padding-left: 40%;
+                white-space: normal;
+                text-align: left;
+            }
+
+            #no-more-tables td:before 
+            {
+                /* Now like a table header */
+                position: absolute;
+                /* Top/left values mimic padding */
+                top: 6px;
+                left: 6px;
+                width: 35%;
+                padding-right: 10px;
+                white-space: nowrap;
+                text-align: left;
+                font-weight: bold;
+                /*background-color:yellowgreen;*/
+            }
+
+            /* Label the data */
+            #no-more-tables td:nth-of-type(1):before {
+                content: "Code";
+            }
+
+            #no-more-tables td:nth-of-type(2):before {
+                content: "Company";
+            }
+
+            #no-more-tables td:nth-of-type(3):before {
+                content: "Price";
+            }
+
+            #no-more-tables td:nth-of-type(4):before {
+                content: "Change";
+            }
+
+            #no-more-tables td:nth-of-type(5):before {
+                content: "Change %";
+            }
+
+            #no-more-tables td:nth-of-type(6):before {
+                content: "Open";
+            }
+
+            #no-more-tables td:nth-of-type(7):before {
+                content: "High";
+            }
+
+            #no-more-tables td:nth-of-type(8):before {
+                content: "Low";
+            }
+
+            #no-more-tables td:nth-of-type(9):before {
+                content: "Volume";
+            }
+
+            #no-more-tables .table-striped > tbody > tr:nth-child(2n+1) > td, 
+            #no-more-tables .table-striped > tbody > tr:nth-child(2n+1) > th {
+               background-color:greenyellow;
+            }
+        }
+
+        td, th {
+            text-align: left;
+            white-space: nowrap;
+        }
+
+        td.numeric, th.numeric {
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12" style="padding:0"><h1 class="label-success">手機</h1></div>
+            <div class="col-lg-3 col-md-4 col-sm-6 hidden-xs" style="padding:0"><h1 class="label-info">平板</h1></div>
+            <div class="col-lg-3 col-md-4 hidden-sm hidden-xs" style="padding:0"><h1 class="label-warning">筆電</h1></div>
+            <div class="col-lg-3 hidden-md hidden-sm hidden-xs" style="padding:0"><h1 class="label-danger">寬螢幕</h1></div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h2>No More Tables - 不再是表格</h2>
+        <p><span class="bg-info">此機制無法共用</span>，至少還沒找到方法</p>
+        <p>所以，所以請依個案一一複製一份，其中 data-title class 需一一設定正確。</p>
+        <p>改良後，data-title 移除，但仍需在 "#no-more-tables td:nth" 額外設定一份 title。</p>
+        <p>再微調，#no-more-tables td 的padding從50％微縮到40％ ； #no-more-tables td:before 的 width 也要相依下降到35％；也改變 alternative 的色調使整體更一致。</p>
+        <p>原理：把“table" 放到天邊（top: -9999px; left: -9999px;），注意不是隱藏也不是移除。再讓"td"看起來像是"row"。</p>
+        <p>This technique was developed by <a href="http://chriscoyier.net/">Chris Coyier</a> (<a href="https://twitter.com/#!/chriscoyier">@chriscoyier</a>) and described in his post <a href="http://css-tricks.com/responsive-data-tables/">Responsive Data Tables</a> at <a href="http://css-tricks.com/">css-tricks.com</a>. While you're there, you should probably check out the <a href="http://css-tricks.com/responsive-data-table-roundup/">Responsive Tables Roundup</a> post, which showcases all these techniques and more.</p>
+        <h3>Example</h3>
+        <div id="no-more-tables">
+            <table class="table-bordered table-striped table-condensed">
+                <thead style="background-color:yellowgreen">
+                    <tr>
+                        <th>Code</th>
+                        <th>Company</th>
+                        <th class="numeric">Price</th>
+                        <th class="numeric">Change</th>
+                        <th class="numeric">Change %</th>
+                        <th class="numeric">Open</th>
+                        <th class="numeric">High</th>
+                        <th class="numeric">Low</th>
+                        <th class="numeric">Volume</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>AAC</td>
+                        <td>AUSTRALIAN AGRICULTURAL COMPANY LIMITED.</td>
+                        <td class="numeric">$1.38</td>
+                        <td class="numeric">-0.01</td>
+                        <td class="numeric">-0.36%</td>
+                        <td class="numeric">$1.39</td>
+                        <td class="numeric">$1.39</td>
+                        <td class="numeric">$1.38</td>
+                        <td class="numeric">9,395</td>
+                    </tr>
+                    <tr>
+                        <td>AAD</td>
+                        <td>ARDENT LEISURE GROUP</td>
+                        <td class="numeric">$1.15</td>
+                        <td class="numeric">  +0.02</td>
+                        <td class="numeric">1.32%</td>
+                        <td class="numeric">$1.14</td>
+                        <td class="numeric">$1.15</td>
+                        <td class="numeric">$1.13</td>
+                        <td class="numeric">56,431</td>
+                    </tr>
+                    <tr>
+                        <td>AAX</td>
+                        <td>AUSENCO LIMITED</td>
+                        <td class="numeric">$4.00</td>
+                        <td class="numeric">-0.04</td>
+                        <td class="numeric">-0.99%</td>
+                        <td class="numeric">$4.01</td>
+                        <td class="numeric">$4.05</td>
+                        <td class="numeric">$4.00</td>
+                        <td class="numeric">90,641</td>
+                    </tr>
+                    <tr>
+                        <td>ABC</td>
+                        <td>ADELAIDE BRIGHTON LIMITED</td>
+                        <td class="numeric">$3.00</td>
+                        <td class="numeric">  +0.06</td>
+                        <td class="numeric">2.04%</td>
+                        <td class="numeric">$2.98</td>
+                        <td class="numeric">$3.00</td>
+                        <td class="numeric">$2.96</td>
+                        <td class="numeric">862,518</td>
+                    </tr>
+                    <tr>
+                        <td>ABP</td>
+                        <td>ABACUS PROPERTY GROUP</td>
+                        <td class="numeric">$1.91</td>
+                        <td class="numeric">0.00</td>
+                        <td class="numeric">0.00%</td>
+                        <td class="numeric">$1.92</td>
+                        <td class="numeric">$1.93</td>
+                        <td class="numeric">$1.90</td>
+                        <td class="numeric">595,701</td>
+                    </tr>
+                    <tr>
+                        <td>ABY</td>
+                        <td>ADITYA BIRLA MINERALS LIMITED</td>
+                        <td class="numeric">$0.77</td>
+                        <td class="numeric">  +0.02</td>
+                        <td class="numeric">2.00%</td>
+                        <td class="numeric">$0.76</td>
+                        <td class="numeric">$0.77</td>
+                        <td class="numeric">$0.76</td>
+                        <td class="numeric">54,567</td>
+                    </tr>
+                    <tr>
+                        <td>ACR</td>
+                        <td>ACRUX LIMITED</td>
+                        <td class="numeric">$3.71</td>
+                        <td class="numeric">  +0.01</td>
+                        <td class="numeric">0.14%</td>
+                        <td class="numeric">$3.70</td>
+                        <td class="numeric">$3.72</td>
+                        <td class="numeric">$3.68</td>
+                        <td class="numeric">191,373</td>
+                    </tr>
+                    <tr>
+                        <td>ADU</td>
+                        <td>ADAMUS RESOURCES LIMITED</td>
+                        <td class="numeric">$0.72</td>
+                        <td class="numeric">0.00</td>
+                        <td class="numeric">0.00%</td>
+                        <td class="numeric">$0.73</td>
+                        <td class="numeric">$0.74</td>
+                        <td class="numeric">$0.72</td>
+                        <td class="numeric">8,602,291</td>
+                    </tr>
+                    <tr>
+                        <td>AGG</td>
+                        <td>ANGLOGOLD ASHANTI LIMITED</td>
+                        <td class="numeric">$7.81</td>
+                        <td class="numeric">-0.22</td>
+                        <td class="numeric">-2.74%</td>
+                        <td class="numeric">$7.82</td>
+                        <td class="numeric">$7.82</td>
+                        <td class="numeric">$7.81</td>
+                        <td class="numeric">148</td>
+                    </tr>
+                    <tr>
+                        <td>AGK</td>
+                        <td>AGL ENERGY LIMITED</td>
+                        <td class="numeric">$13.82</td>
+                        <td class="numeric">  +0.02</td>
+                        <td class="numeric">0.14%</td>
+                        <td class="numeric">$13.83</td>
+                        <td class="numeric">$13.83</td>
+                        <td class="numeric">$13.67</td>
+                        <td class="numeric">846,403</td>
+                    </tr>
+                    <tr>
+                        <td>AGO</td>
+                        <td>ATLAS IRON LIMITED</td>
+                        <td class="numeric">$3.17</td>
+                        <td class="numeric">-0.02</td>
+                        <td class="numeric">-0.47%</td>
+                        <td class="numeric">$3.11</td>
+                        <td class="numeric">$3.22</td>
+                        <td class="numeric">$3.10</td>
+                        <td class="numeric">5,416,303</td>
+                    </tr>
+                </tbody>
+            </table>
+            <h3>Code</h3>
+            <p>This technique as presented here relies on using <a href="http://html5doctor.com/html5-custom-data-attributes/">HTML5 data attributes</a> and accessing them via CSS to specify the column headings. The other option is to hard code the column headings into the CSS, but as we all know content in CSS is a huge no-no.</p>
+        </div>
+    </div>
+
+    <footer style="height:200px">
+        <!-- 留白 -->
+    </footer>
+</body>
+</html>
