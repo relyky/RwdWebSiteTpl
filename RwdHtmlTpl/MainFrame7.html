@@ -1,0 +1,145 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NavBar</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+
+    <style>
+        /* Navigation */
+        #menu {
+	        padding: 20px;
+	        transition: all 0.8s;
+        }
+        #menu.navbar-default {
+	        background-color: rgba(248, 248, 248, 0);
+	        border-color: rgba(231, 231, 231, 0);
+        }
+        #menu a.navbar-brand {
+	        font-size: 18px;
+	        color: rgba(255,255,255,0.8);
+	        font-weight: 500;
+	        text-transform: uppercase;
+        }
+        #menu a.navbar-brand:hover {
+	        color: #cd65b5;
+        }
+        #menu.navbar-default .navbar-nav > li > a {
+	        text-transform: uppercase;
+	        color: rgba(255,255,255,0.8);
+	        font-size: 14px;
+	        font-weight: 400;
+	        letter-spacing: 1px;
+        }
+        #menu.navbar-default .navbar-nav > li > a:hover {
+	        color: #cd65b5;
+        }
+        .on {
+	        background-color: rgba(0,0,0,0.8) !important;
+	        padding: 0 !important;
+        }
+        .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+	        color: #C54DAA !important;
+	        background-color: transparent;
+        }
+        .navbar-toggle {
+	        border-radius: 0;
+        }
+        .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+	        background-color: #C54DAA;
+	        border-color: #C54DAA;
+        }
+        .navbar-default .navbar-toggle:hover>.icon-bar {
+	        background-color: #FFF;
+        }
+    </style>
+
+</head>
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top" style="background-color:cornflowerblue;">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1"> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                    <span class="icon-bar"></span> 
+                </button>
+                <a class="navbar-brand" href="#page-top">Logo</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Gallery</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <div class="container body-content" style="margin-top:91px;">
+        <div class="jumbotron">
+            <h1 style="text-align:center">CONTENT</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>
+            <h1>Some text to enable scrolling</h1>        
+        </div>
+
+    </div>
+    <hr />
+    <footer style="text-align:center;"> 
+        <p>&copy; 2017 - 我的 ASP.NET 應用程式</p>
+    </footer>
+
+    <script type="text/javascript">
+        function main() {
+
+            (function () {
+
+                // Show Menu on Book
+                $(window).bind('scroll', function () {
+                    var navHeight = $(window).height() - 500;
+                    if ($(window).scrollTop() > navHeight) {
+                        $('.navbar-default').addClass('on');
+                    } else {
+                        $('.navbar-default').removeClass('on');
+                    }
+                });
+
+                // Hide nav on click
+                $(".navbar-nav li a").click(function (event) {
+                    // check if window is small enough so dropdown is created
+                    var toggle = $(".navbar-toggle").is(":visible");
+                    if (toggle) {
+                        $(".navbar-collapse").collapse('hide');
+                    }
+                });
+
+            }());
+
+        }
+        main();
+    </script>
+</body>
+</html>

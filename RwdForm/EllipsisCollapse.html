@@ -1,0 +1,37 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>ellipsis-collapse</title>
+	<meta charset="utf-8" />
+    <style>
+
+        .ellipsis { 
+        }
+
+        .ellipsis-collapse {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+</head>
+<body>
+
+    <h3>Click to ellipsis</h3>
+    <div class="ellipsis ellipsis-collapse" style="border:solid thin; border-radius:5px; margin:5px;">
+        有位船主正要讓一艘移民船出航，他知道這艘船當初造得不盡理想，它已航行很多次，到過許多國家，現在很舊了，經常需要修理。心中的疑慮告訴他，也許這艘船已不能再航行，滿腹懷疑使他悶悶不樂，他想，或許該做個徹底檢修，重新改裝，但就算這樣，也要花許多錢。然而，在開航前，他成功克服這些令人不快的疑慮，安慰自己，這艘船行遍天下，經過多少大風大浪，每次不都是平安歸來，所以根本不用瞎操心。最後，他把一切寄託於神，對那些依依不捨、離鄉背井、遠度重洋追尋更好機會的人們，神應該會眷顧他們。
+    </div>
+    <div class="ellipsis ellipsis-collapse" style="border:solid thin; border-radius:5px; margin:5px;">
+        在排除狹隘多疑的心態，相信建造者與承包商的正直之後，他覺得很真誠、舒暢，不再有罪惡感，認為船絕對安全，還是可以出航。他輕鬆自在地目送船離港，由衷祝福它平安到達異鄉。結果，船航行到一半就沉了，船主拿到保險金，卻沒說出真相。
+    </div>
+
+    <script>
+        $(".ellipsis").click(function () {
+            $(this).toggleClass("ellipsis-collapse");
+        });
+    </script>
+
+</body>
+</html>

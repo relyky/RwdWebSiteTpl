@@ -1,0 +1,303 @@
+﻿
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Main Frame 7B</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+          //## scroll-spy
+          $('body').scrollspy({ target: ".navbar", offset: 50 });
+
+          //## Add smooth scrolling to all links
+          $("a").on('click', function(event) {
+
+            // Make sure this.hash has a value before overriding default behavior
+            if (this.hash !== "") {
+              // Prevent default anchor click behavior
+              event.preventDefault();
+
+              // Store hash
+              var hash = this.hash;
+
+              // Using jQuery's animate() method to add smooth page scroll
+              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+              $('html, body').animate({
+                scrollTop: ($(hash).offset().top) - 50
+              }, 800, function(){
+
+                // Add hash (#) to URL when done scrolling (default click behavior)
+                window.location.hash = hash;
+              });
+            } // End if
+          });
+
+        });
+    </script>
+
+    <style>
+        /* Navigation */
+        #menu {
+            padding: 20px;
+            transition: all 0.8s;
+        }
+
+            #menu.navbar-default {
+                background-color: rgba(248, 248, 248, 0);
+                border-color: rgba(231, 231, 231, 0);
+            }
+
+            #menu a.navbar-brand {
+                font-size: 18px;
+                color: rgba(255,255,255,0.8);
+                font-weight: 500;
+                text-transform: uppercase;
+            }
+
+                #menu a.navbar-brand:hover {
+                    color: #cd65b5;
+                }
+
+            #menu.navbar-default .navbar-nav > li > a {
+                text-transform: uppercase;
+                color: rgba(255,255,255,0.8);
+                font-size: 14px;
+                font-weight: 400;
+                letter-spacing: 1px;
+            }
+
+                #menu.navbar-default .navbar-nav > li > a:hover {
+                    color: #cd65b5;
+                }
+
+        .on {
+            background-color: rgba(0,0,0,0.8) !important;
+            padding: 0 !important;
+        }
+
+        .navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+            color: #C54DAA !important;
+            background-color: transparent;
+        }
+
+        .navbar-toggle {
+            border-radius: 0;
+        }
+
+        .navbar-default .navbar-toggle:hover, .navbar-default .navbar-toggle:focus {
+            background-color: #C54DAA;
+            border-color: #C54DAA;
+        }
+
+            .navbar-default .navbar-toggle:hover > .icon-bar {
+                background-color: #FFF;
+            }
+
+          /* Icon when the collapsible content is hidden */
+         #menu-btn.collapsed {
+            background-color: transparent;
+            border-color: #ddd;
+          }
+
+         #menu-btn.collapsed > .icon-bar {
+            background-color: #888;
+          }
+
+        /* Header */
+
+        .jumbotron {
+            padding-top: 0;
+            padding-bottom: 0;
+            margin-bottom: 30px;
+            color: inherit;
+            /*background: url(/img/intro-bg.jpg) no-repeat right bottom;*/
+            background: url(/img/ASVT_3.jpg) no-repeat;
+            background-position: bottom right;
+            background-color: #e5e5e5;
+            background-size: cover;
+        }
+
+        @media screen and (max-width: 767px)
+        {
+            .jumbotron {
+                background-position: bottom 0 right -170px;
+            }
+        }
+
+        .jumbotron .overlay 
+        {
+            background: -moz-linear-gradient(top, rgba(27,113,214,0.5) 0%, rgba(197,77,170,0.5) 100%);
+            background: -webkit-linear-gradient(top, rgba(27,113,214,0.5) 0%, rgba(197,77,170,0.5) 100%);
+            background: linear-gradient(to bottom, rgba(27,113,214,0.5) 0%, rgba(197,77,170,0.5) 100%);
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#801b71d6', endColorstr='#80c54daa', GradientType=0 );
+        }
+
+        .intro-text 
+        {
+            padding-top: 250px;
+            padding-bottom: 200px;
+            padding-left: 10%;
+        }
+
+    </style>
+
+</head>
+<body id="page-top">
+
+    <!-- Navigation -->
+    <nav id="menu" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button id="menu-btn" type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-navbar-collapse-1">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#page-top"><img src="../img/logo.png" /></a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#testimonials">Testimonials</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="http://www.google.com" style="color:darkorchid; font-weight:bolder;"><i class="fa fa-ellipsis-h"></i></a></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header id="header">
+        <div class="jumbotron">
+            <div class="overlay intro-text">
+                <span style="color:rgba(255,255,255,0.5);">Welcome to</span>
+                <h1 style="font-weight:700; color:rgba(255,255,255,0.9);">亞州志遠科技</h1>
+                <p class="lead" style="color:#fff">
+                    Aisa Vista Technology<br>
+                    今天天氣很好。
+                </p>
+                <a href="#about" class="btn btn-primary btn-lg" >Read more &raquo;</a>
+            </div>
+        </div>
+    </header>
+
+    <div id="about" class="container">
+        <h1 style="text-align:center">About</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+    </div>
+    <div id="services" class="container">
+        <h1 style="text-align:center">Services</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+    </div>
+    <div id="portfolio" class="container">
+        <h1 style="text-align:center">Portfolio</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+    </div>
+    <div id="testimonials" class="container">
+        <h1 style="text-align:center">Testimonials</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+    </div>
+    <div id="contact" class="container">
+        <h1 style="text-align:center">Contact</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+        <h1>Some text to enable scrolling</h1>
+    </div>
+
+    <hr />
+    <footer style="text-align:center;">
+        <p>&copy; 2017 - 我的 ASP.NET 應用程式</p>
+    </footer>
+
+    <script type="text/javascript">
+        function main() {
+
+            (function () {
+
+                // Show Menu on Book
+                $(window).bind('scroll', function () {
+                    var navHeight = $(window).height() - 500;
+                    if ($(window).scrollTop() > navHeight) {
+                        $('.navbar-default').addClass('on');
+                    } else {
+                        $('.navbar-default').removeClass('on');
+                    }
+                });
+
+                // Hide nav on click
+                $(".navbar-nav li a").click(function (event) {
+                    // check if window is small enough so dropdown is created
+                    var toggle = $(".navbar-toggle").is(":visible");
+                    if (toggle) {
+                        $(".navbar-collapse").collapse('hide');
+                    }
+                });
+
+            }());
+
+        }
+        main();
+    </script>
+</body>
+</html>
