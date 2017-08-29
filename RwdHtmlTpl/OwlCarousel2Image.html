@@ -1,0 +1,86 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Mainframe Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/OwlCarousel2/assets/owl.carousel.min.css" />
+    <link rel="stylesheet" href="/OwlCarousel2/assets/owl.theme.default.min.css" />
+    <style>
+        /*.owl-carousel .item {
+            height: 10rem;
+            background: #4DC7A0;
+            padding: 1rem;
+        }*/
+    </style>
+
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/OwlCarousel2/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            //## Owl initializer function
+            $('.owl-carousel').owlCarousel({
+                loop: true,
+                margin: 10,                
+                nav: false,
+                lazyLoad: true,
+                autoplay:true,
+                autoplayTimeout:1000,
+                autoplayHoverPause:true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true,
+                        dots: false,
+                    },
+                    768: {
+                        items: 2,
+                    },
+                    920: {
+                        items: 3,
+                    },
+                    1024: {
+                        items: 4,
+                    },
+                    1440: {
+                        items: 5,
+                    }
+                }
+            });
+        });
+    </script>
+
+</head>
+<body>
+    <div class="container">
+
+        <h2>Image Carousel &amp; Lazy Load</h2>
+        <p>
+            To show image.
+        </p>
+
+        <div class="owl-carousel owl-theme">
+            <img class="owl-lazy" data-src="/imgs/img1-01_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-02_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-03_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-07_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img1-01_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-02_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-03_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-07_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img1-01_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-02_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-03_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-07_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img1-01_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-02_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-03_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-07_365.jpg">
+        </div>
+
+    </div>
+</body>
+</html>
