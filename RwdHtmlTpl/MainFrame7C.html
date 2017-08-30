@@ -3,13 +3,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Main Frame 7B</title>
+    <title>Main Frame 7C</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Content/bootstrap.min.css" />
     <link rel="stylesheet" href="/css/font-awesome.min.css" />
     <style type="text/css">
-        /* Navigation */
+        /* ## Navigation */
         #menu {
             padding: 20px;
             transition: all 0.8s;
@@ -76,7 +76,7 @@
                 background-color: #888;
             }
 
-        /* Header */
+        /* ## Header */
 
         .jumbotron {
             padding-top: 0;
@@ -84,7 +84,7 @@
             margin-bottom: 30px;
             color: inherit;
             /*background: url(/img/intro-bg.jpg) no-repeat right bottom;*/
-            background: url(/img/intro-bg.jpg) no-repeat;
+            background: url(/img/ASVT_3.jpg) no-repeat;
             background-position: bottom right;
             background-color: #e5e5e5;
             background-size: cover;
@@ -92,7 +92,7 @@
 
         @media screen and (max-width: 767px) {
             .jumbotron {
-                background-position: bottom 0 right -300px;
+                background-position: bottom 0 right -170px;
             }
 
             h2 {
@@ -112,10 +112,40 @@
             padding-bottom: 200px;
             padding-left: 10%;
         }
+
+        /* Achivements Section */
+        #achievements {
+	        background: url(/img/achievements-bg.jpg) no-repeat center fixed;
+	        background-color: #e5e5e5;
+	        background-size: cover;
+	        -webkit-background-size: cover;
+	        -moz-background-size: cover;
+	        -o-background-size: cover;
+        }
+        #achievements h2 {
+	        color: #fff;
+        }
+        .achievement-box h4 {
+	        color: #fff;
+	        font-size: 16px;
+	        font-weight: 400;
+	        margin-left: 5px;
+	        text-transform: uppercase;
+        }
+        .achievement-box span.upcounter {
+	        font-size: 52px;
+	        font-weight: 600;
+	        display: block;
+	        color: #fff;
+	        padding: 0;
+	        margin: 0;
+        }
     </style>
 
     <script src="/Scripts/jquery-3.1.1.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery.waypoints.min.js"></script>
+    <script src="/jQuery-Countup/jquery.countup.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
@@ -145,6 +175,8 @@
             } // End if
           });
 
+            //## Up Counter
+          $(".upcounter").countUp({time:2000, delay:100});
         });
     </script>
 
@@ -190,7 +222,7 @@
                     專業、效率、創新、誠信<br>
                     是亞洲志遠科技永續經營的磐石。
                 </p>
-                <a href="#about" class="btn btn-primary btn-lg" >Read more &raquo;</a>
+                <a href="#about" class="btn btn-primary btn-lg">Read more &raquo;</a>
             </div>
         </div>
     </header>
@@ -237,6 +269,44 @@
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
     </div>
+
+    <div id="achievements" class="text-center">
+        <div class="overlay" style="padding:120px 0;">
+            <div class="container">
+                <div class="section-title center">
+                    <h2>Some Stats</h2>
+                    <hr>
+                </div>
+                <div class="row">
+                    <div class="col-md-3 col-sm-6">
+                        <div class="achievement-box">
+                            <span class="upcounter">260</span>
+                            <h4>Customers</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="achievement-box">
+                            <span class="upcounter">83</span>
+                            <h4>Developers</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="achievement-box">
+                            <span class="upcounter">571</span>
+                            <h4>Projects</h4>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-sm-6">
+                        <div class="achievement-box">
+                            <span class="upcounter">12</span>
+                            <h4>Awards</h4>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div id="testimonials" class="container">
         <h1 style="text-align:center">Testimonials</h1>
         <h1>Some text to enable scrolling</h1>
