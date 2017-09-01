@@ -1,0 +1,72 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Mainframe Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <style>
+        .btn-custom {
+            color: #fff;
+            background-color: #C54DAA;
+            border-color: #b73c9b;
+        }
+
+        .btn-custom:hover, 
+        .btn-custom:focus, 
+        .btn-custom:active {
+	        color: #fff;
+	        background-color: #b73c9b;
+        }
+
+        .btn-custom2 {
+            color: #333;
+            background-color: #fff;
+            border-color: #ccc;
+        }
+        .btn-custom2:hover
+        {
+	        color: #fff;
+	        background-color: #C54DAA;
+        }
+        .btn-custom2:focus, 
+        .btn-custom2:active {
+	        color: #fff;
+	        background-color: #b73c9b;
+        }
+
+    </style>
+
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+    <h1>Customize Button</h1>
+    <div class="container">
+        
+        <button type="button" class="btn">Basic</button>
+        <button type="button" class="btn btn-default">Default</button>
+        <button type="button" class="btn btn-primary">Primary</button>
+        <button type="button" class="btn btn-success">Success</button>
+        <button type="button" class="btn btn-info">Info</button>
+        <button type="button" class="btn btn-warning">Warning</button>
+        <button type="button" class="btn btn-danger">Danger</button>
+        <button type="button" class="btn btn-link">Link</button>
+        <br />
+        <br />
+        <button class="btn btn-custom">Custom</button>
+        <button class="btn btn-custom2">Custom2</button>
+        
+    </div>
+</body>
+</html>

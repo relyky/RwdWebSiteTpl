@@ -17,15 +17,11 @@
                 var value = $(this).attr('data-filter');
 
                 if (value == "all") {
-                    //$('.filter').removeClass('hidden');
                     $('.filter').show('1000');
                 }
                 else {
-                    //           $('.filter[filter-item="'+value+'"]').removeClass('hidden');
-                    //           $(".filter").not('.filter[filter-item="'+value+'"]').addClass('hidden');
                     $(".filter").not('.' + value).hide('3000');
                     $('.filter').filter('.' + value).show('3000');
-
                 }
             });
 
@@ -73,7 +69,6 @@
         text-align: center;
         color: #ffffff;
         background-color: #42B32F;
-
     }
     .btn-default:active .filter-button:active
     {
@@ -83,7 +78,7 @@
 
     .gallery_product
     {
-        margin-bottom: 30px;       
+        margin-bottom: 30px;          
     }
     </style>
 </head>

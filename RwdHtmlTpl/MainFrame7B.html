@@ -116,34 +116,12 @@
 
     <script src="/Scripts/jquery-3.1.1.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/js/simple-smooth-scroll.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
-          //## scroll-spy
-          $('body').scrollspy({ target: ".navbar", offset: 50 });
-
-          //## Add smooth scrolling to all links
-          $("a").on('click', function(event) {
-
-            // Make sure this.hash has a value before overriding default behavior
-            if (this.hash !== "") {
-              // Prevent default anchor click behavior
-              event.preventDefault();
-
-              // Store hash
-              var hash = this.hash;
-
-              // Using jQuery's animate() method to add smooth page scroll
-              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-              $('html, body').animate({
-                scrollTop: ($(hash).offset().top) - 50
-              }, 800, function(){
-
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-              });
-            } // End if
-          });
+            //## scroll-spy
+            $('body').scrollspy({ target: ".navbar", offset: 50 });
 
         });
     </script>
@@ -167,11 +145,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" class="smooth-scroll">About</a></li>
+                    <li><a href="#services" class="smooth-scroll">Services</a></li>
+                    <li><a href="#portfolio" class="smooth-scroll">Portfolio</a></li>
+                    <li><a href="#testimonials" class="smooth-scroll">Testimonials</a></li>
+                    <li><a href="#contact" class="smooth-scroll">Contact</a></li>
                     <li><a href="http://www.google.com"><i class="fa fa-ellipsis-h"></i></a></li>
                 </ul>
             </div>

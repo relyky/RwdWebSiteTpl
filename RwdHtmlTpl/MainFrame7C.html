@@ -140,42 +140,52 @@
 	        padding: 0;
 	        margin: 0;
         }
+
+        /* Footer Section*/
+        footer 
+        {
+	        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c54daa+0,1b71d6+100 */
+	        background: rgb(197,77,170); /* Old browsers */
+	        background: -moz-linear-gradient(left, rgba(197,77,170,1) 0%, rgba(27,113,214,1) 100%); /* FF3.6-15 */
+	        background: -webkit-linear-gradient(left, rgba(197,77,170,1) 0%, rgba(27,113,214,1) 100%); /* Chrome10-25,Safari5.1-6 */
+	        background: linear-gradient(to right, rgba(197,77,170,1) 0%, rgba(27,113,214,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c54daa', endColorstr='#1b71d6', GradientType=1 ); /* IE6-9 */
+	        color: rgba(255,255,255,0.5);
+	        padding: 30px 0 25px 0;
+        }
+        footer a 
+        {
+	        color: rgba(255,255,255,0.7);
+        }
+        footer a:hover 
+        {
+	        color: #fff;
+        }
+
+        hr {
+	        height: 2px;
+	        width: 140px;
+	        text-align: center;
+	        position: relative;
+	        background: #C54DAA;
+	        margin: 0 auto;
+	        margin-bottom: 20px;
+	        border: 0;
+        }
     </style>
 
     <script src="/Scripts/jquery-3.1.1.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
     <script src="/Scripts/jquery.waypoints.min.js"></script>
     <script src="/jQuery-Countup/jquery.countup.min.js"></script>
+    <script src="/js/simple-smooth-scroll.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
 
           //## scroll-spy
           $('body').scrollspy({ target: ".navbar", offset: 50 });
 
-          //## Add smooth scrolling to all links
-          $("a").on('click', function(event) {
-
-            // Make sure this.hash has a value before overriding default behavior
-            if (this.hash !== "") {
-              // Prevent default anchor click behavior
-              event.preventDefault();
-
-              // Store hash
-              var hash = this.hash;
-
-              // Using jQuery's animate() method to add smooth page scroll
-              // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
-              $('html, body').animate({
-                scrollTop: ($(hash).offset().top) - 50
-              }, 800, function(){
-
-                // Add hash (#) to URL when done scrolling (default click behavior)
-                window.location.hash = hash;
-              });
-            } // End if
-          });
-
-            //## Up Counter
+          //## Up Counter
           $(".upcounter").countUp({time:2000, delay:100});
         });
     </script>
@@ -199,11 +209,11 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#services">Services</a></li>
-                    <li><a href="#portfolio">Portfolio</a></li>
-                    <li><a href="#testimonials">Testimonials</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#about" class="smooth-scroll">About</a></li>
+                    <li><a href="#services" class="smooth-scroll">Services</a></li>
+                    <li><a href="#portfolio" class="smooth-scroll">Portfolio</a></li>
+                    <li><a href="#testimonials" class="smooth-scroll">Testimonials</a></li>
+                    <li><a href="#contact" class="smooth-scroll">Contact</a></li>
                     <li><a href="http://www.google.com"><i class="fa fa-ellipsis-h"></i></a></li>
                 </ul>
             </div>
@@ -229,6 +239,7 @@
 
     <div id="about" class="container">
         <h1 style="text-align:center">About</h1>
+        <hr />
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
@@ -243,6 +254,7 @@
     </div>
     <div id="services" class="container">
         <h1 style="text-align:center">Services</h1>
+        <hr />
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
@@ -257,6 +269,7 @@
     </div>
     <div id="portfolio" class="container">
         <h1 style="text-align:center">Portfolio</h1>
+        <hr />
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
@@ -309,6 +322,7 @@
 
     <div id="testimonials" class="container">
         <h1 style="text-align:center">Testimonials</h1>
+        <hr />
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
@@ -323,6 +337,7 @@
     </div>
     <div id="contact" class="container">
         <h1 style="text-align:center">Contact</h1>
+        <hr />
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
         <h1>Some text to enable scrolling</h1>
@@ -336,9 +351,10 @@
         <h1>Some text to enable scrolling</h1>
     </div>
 
-    <hr />
-    <footer style="text-align:center;">
-        <p>&copy; 2017 - 我的 ASP.NET 應用程式</p>
+    <footer>
+        <div class="container text-center">
+            <p>Copyright &copy; 2016 Standout. Designed by <a href="http://www.templatewire.com" rel="nofollow">TemplateWire</a></p>
+        </div>
     </footer>
 
     <script type="text/javascript">
