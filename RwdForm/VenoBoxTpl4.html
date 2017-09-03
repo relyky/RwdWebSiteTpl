@@ -1,0 +1,211 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VenoBox Gallery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/VenoBox/venobox.css" />
+    <style>
+        /* .hover-scale-opacity */
+        a.venobox > img {
+            transition: all 0.5s ease;
+        }
+
+        a.venobox:hover > img {
+            transform: scale(1.1);
+            opacity: 0.66;
+        }
+    </style>
+
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/VenoBox/venobox.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // 啟動 venobox
+            // ref→http://veno.es/venobox/
+            $('.venobox').venobox({
+                spinner: 'wave',
+                border: '10px',             // default: '0'
+                bgcolor: '#eee',            // default: '#fff'
+                titleattr: 'data-title',    // default: 'title'
+                numeratio: true,            // default: false
+                infinigall: true,            // default: false
+                //framewidth: '400px',        // default: ''
+                //frameheight: '300px',       // default: ''
+            });
+
+            // 啟動 venobox - single mode
+            // ref→http://veno.es/venobox/
+            $('.venobox-single').venobox({
+                border: '10px',             // default: '0'
+                bgcolor: '#eee',            // default: '#fff'
+                titleattr: 'data-title',    // default: 'title'
+            });
+
+            // 啟動 venobox
+            var venoboxInline = $('.venobox-inline').venobox({
+                framewidth: '400px',
+                frameheight: 'auto',
+                border: '10px',
+                bgcolor: '#f46f00',
+                // cb_init : function(plugin){
+                //     console.log('INIT');
+                //     console.log(plugin);
+                // },
+                // cb_pre_open : function(obj){
+                //     console.log('link obj');
+                //     console.log(obj.data());
+                // },
+                // cb_post_open : function(obj, gallIndex, thenext, theprev){
+                //     console.log('item index');
+                //     console.log(gallIndex);
+                //     console.log('next - prev lenght');
+                //     console.log(thenext.length);
+                //     console.log(theprev.length);
+                // },
+                // cb_pre_close : function(obj, gallIndex, thenext, theprev){
+                //     console.log('item index');
+                //     console.log(gallIndex);
+                // },
+                // cb_post_close : function(){
+                //     console.log('CLOSED');
+                // },
+                // cb_after_nav : function(obj, gallIndex, thenext, theprev){
+                //     console.log('after nav');
+                //     console.log(gallIndex);
+                // }
+
+            })
+            //test.venobox('foo_public_method');
+            // call a method from within the plugin outside of the plugin.
+            $(document).on('click', '.closeme', function (e) {
+                e.preventDefault();
+                // console.log('called');
+                // venoboxInline.VBprev();
+                // venoboxInline.VBnext();
+                venoboxInline.VBclose();
+            });
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h2>VenoBox overlay &amp; [inline content]</h2>
+
+        <a class="venobox btn btn-default" data-vbtype="inline" data-gall="colors" data-overlay="rgba(95,164,255,0.8)"
+           href="#inline-1" style="background:rgba(95,164,255,0.8); color:#fff;">Color 1</a>
+        <a class="venobox btn btn-default" data-vbtype="inline" data-gall="colors" data-overlay="rgba(51,0,255,0.8)"
+           href="#inline-2" style="background:rgba(51,0,255,0.8); color:#fff;">Color 2</a>
+        <a class="venobox btn btn-default" data-vbtype="inline" data-gall="colors" data-overlay="rgba(202,45,164, 0.8)"
+           href="#inline-3" style="background:rgba(202,45,164, 0.8); color:#fff;">Color 3</a>
+        <a class="venobox btn btn-default" data-vbtype="inline" data-gall="colors" data-overlay="#ffe74c"
+           href="#inline-4" style="background:#ffe74c; color:#fff;">Color 4</a>
+
+        <div id="inline-1" style="display:none;">
+            <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                <h1>Custom</h1>
+                <p>set different custom overlay colors for each link</p>
+            </div>
+        </div>
+        <div id="inline-2" style="display:none;">
+            <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                <h1>Background</h1>
+                <p>set different custom overlay colors for each link</p>
+            </div>
+        </div>
+        <div id="inline-3" style="display:none;">
+            <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                <h1>Colors</h1>
+                <p>set different custom overlay colors for each link</p>
+            </div>
+        </div>
+        <div id="inline-4" style="display:none;">
+            <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                <h1>RGBA or FULL</h1>
+                <p>set different custom overlay colors for each link</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <h1 class="text-center">Gallery</h1>
+        <h2>VenoBox Overlay : Light Box</h2>
+
+        <div class="row">
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+                <a class="venobox" href="/img/portfolio/01-large.jpg" data-gall="Gallery01" data-title="image title 01"
+                   data-overlay="rgba(95,164,255,0.8)">
+                    <img src="/img/portfolio/01-small.jpg" alt="image-01" class="img-responsive" />
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+                <a class="venobox" href="/img/portfolio/02-large.jpg" data-gall="Gallery01" data-title="image title 02"
+                   data-overlay="rgba(51,0,255,0.8)">
+                    <img src="/img/portfolio/02-small.jpg" alt="image-02" class="img-responsive" />
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+                <a class="venobox" href="/img/portfolio/03-large.jpg" data-gall="Gallery01" data-title="image title 03"
+                   data-overlay="rgba(202,45,164, 0.8)">
+                    <img src="/img/portfolio/03-small.jpg" alt="image-03" class="img-responsive" />
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+                <a class="venobox" href="/img/portfolio/04-large.jpg" data-gall="Gallery01" data-title="image title 04"
+                   data-overlay="#ffe74c">
+                    <img src="/img/portfolio/04-small.jpg" alt="image-04" class="img-responsive" />
+                </a>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="container">
+        <h2>VenoBox Custom links</h2>
+
+        <a class="btn btn-primary btn-lg venobox-single" data-vbtype="iframe"
+           href="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14464.350443852676!2d121.4855955!3d24.9971388!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x34680283cd393895%3A0xcf6f44ae320e3c5c!2zMjM15paw5YyX5biC5Lit5ZKM5Y2A5Lit5q2j6LevNzU16Jmf!5e0!3m2!1szh-TW!2stw!4v1504450269146"
+           title="Google Maps example">
+            <i class="fa fa-map-marker"></i>&nbsp;Google Map
+        </a>
+
+        <a class="btn btn-danger btn-lg venobox-single" data-vbtype="video" data-autoplay="true"
+           href="https://www.youtube.com/watch?v=pUe7W6n4vIA"
+           title="YouTube example">
+            <i class="fa fa-youtube"></i>&nbsp;YouTube
+        </a>
+
+        <a class="btn btn-warning btn-lg venobox-inline" data-vbtype="inline"
+           href="#inline-content">Inline</a>
+
+        <div id="inline-content" style="display:none;">
+            <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                <h1>Hello world!</h1>
+                <p>this is my inline content, with custom options: </p>
+                <p>
+                </p><ul>
+                    <li><code>framewidth</code> : <code>'400px'</code> </li>
+                    <li><code>frameheight</code> : <code>'auto'</code></li>
+                    <li><code>border</code> : <code>'10px'</code></li>
+                    <li><code>bgcolor</code> : <code>'#f46f00'</code></li>
+                </ul>
+                <p></p>
+                <a href="#" class="closeme">close</a>
+                <h1 class="pull-left"><i class="fa fa-cog fa-spin"></i></h1>
+                <div class="trans vbox-close" style="color: rgb(210, 210, 210); background-color: rgb(22, 22, 23);">some css3 transitions</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+

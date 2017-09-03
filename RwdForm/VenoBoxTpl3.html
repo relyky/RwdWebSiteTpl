@@ -1,0 +1,121 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VenoBox Gallery</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="/VenoBox/venobox.css" />
+    <style>
+        /* .hover-scale-opacity */
+        a.venobox > img {
+            transition: all 0.5s ease;
+        }
+
+        a.venobox:hover > img {
+            transform: scale(1.1);
+            opacity: 0.66;
+        }
+    </style>
+
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/VenoBox/venobox.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            // 啟動 venobox
+            // ref→http://veno.es/venobox/
+            $('.venobox').venobox({
+                spinner: 'wave',
+                infinigall: true,            // default: false
+                framewidth: '1020px',        // default: '' // 配合圖片寬度調整，原則上所有圖版寬度全部一致。
+                frameheight: 'auto',       // default: ''
+                //numeratio: true,            // default: false
+                //border: '10px',             // default: '0'
+                //bgcolor: '#eee',            // default: '#fff'
+                //titleattr: 'data-title',    // default: 'title'
+            });
+
+        });
+
+    </script>
+
+</head>
+<body>
+
+    <div class="container">
+        <h1 class="text-center">Gallery - Image of Inline Content</h1>
+        <h2>VenoBox Overlay : Light Box</h2>
+
+        <div class="row">
+            <!-- image1 -->
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+                <a class="venobox" data-gall="Gallery01"
+                   data-vbtype="inline" href="#inline-image-1">
+                    <img src="/img/portfolio/01-small.jpg" alt="image-01" class="img-responsive" />
+                </a>
+            </div>
+            <div id="inline-image-1" style="display:none;">
+                <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                    <h4>Image 1/4</h4>
+                    <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。</p>
+                    <img src="/img/portfolio/01-large.jpg" alt="image-01" class="img-responsive" />
+                </div>
+            </div>
+
+            <!-- image2 -->
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+                <a class="venobox" data-gall="Gallery01"
+                   data-vbtype="inline" href="#inline-image-2">
+                    <img src="/img/portfolio/02-small.jpg" alt="image-02" class="img-responsive" />
+                </a>
+            </div>
+            <div id="inline-image-2" style="display:none;">
+                <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                    <h4>Image 2/4</h4>
+                    <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。</p>
+                    <img src="/img/portfolio/02-large.jpg" alt="image-02" class="img-responsive" />
+                </div>
+            </div>
+            
+            <!-- image3 -->
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+                <a class="venobox" data-gall="Gallery01"
+                   data-vbtype="inline" href="#inline-image-3">
+                    <img src="/img/portfolio/03-small.jpg" alt="image-03" class="img-responsive" />
+                </a>
+            </div>
+            <div id="inline-image-3" style="display:none;">
+                <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                    <h4>Image 3/4</h4>
+                    <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。</p>
+                    <img src="/img/portfolio/03-large.jpg" alt="image-03" class="img-responsive" />
+                </div>
+            </div>
+
+            <!-- image4 -->
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+                <a class="venobox" data-gall="Gallery01"
+                   data-vbtype="inline" href="#inline-image-4">
+                    <img src="/img/portfolio/04-small.jpg" alt="image-04" class="img-responsive" />
+                </a>
+            </div>
+            <div id="inline-image-4" style="display:none;">
+                <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                    <h4>Image 4/4</h4>
+                    <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。</p>
+                    <img src="/img/portfolio/04-large.jpg" alt="image-04" class="img-responsive" />
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+
+

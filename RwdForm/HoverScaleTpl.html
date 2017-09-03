@@ -1,0 +1,50 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Mainframe Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <style>
+
+        .hover-scale-opacity
+        {
+            transition: all 0.5s ease;
+        }
+        .hover-scale-opacity:hover
+        {
+            transform: scale(1.1);
+            opacity:0.66;
+        }
+
+    </style>
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <h2>CSS Class : hover-scale-opacity</h2>
+        <div style="display:inline">
+            <img src="/img/clients/01.jpg" class="hover-scale-opacity" />
+        </div>
+        <div style="display:inline">
+            <img src="/img/clients/02.jpg" class="hover-scale-opacity" />
+        </div>
+        <div style="display:inline">
+            <img src="/img/clients/03.jpg" class="hover-scale-opacity" />
+        </div>
+        <div style="display:inline">
+            <div style="width:200px; height:200px;" class="hover-scale-opacity"></div>
+        </div>
+
+
+    </div>
+</body>
+</html>
