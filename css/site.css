@@ -26,6 +26,9 @@ select.form-control {
 /* 變更預設字型 */
 /*body, button, input, select, textarea, h1 ,h2, h3, h4, h5, h6
 {
+    font-family: '微軟正黑體', '微软雅黑', 'Microsoft YaHei','標楷體', Tahoma, Helvetica, Arial, sans-serif;
     font-family: Microsoft YaHei, Tahoma, Helvetica, Arial, "\5b8b\4f53", sans-serif;
+    font-family: "微軟正黑體", "微软雅黑",'Open Sans', sans-serif;
+    font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif; 
 }*/
-/* font-family: "Source Sans Pro","Helvetica Neue",Helvetica,Arial,sans-serif; */
+

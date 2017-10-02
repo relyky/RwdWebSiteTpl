@@ -1,0 +1,123 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Font Awesome Icons Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/css/font-awesome.min.css" />
+    <style>
+        .service-item {
+            text-align:center;
+        }
+        .service-item i.fa {
+            font-size:38px;
+            margin-bottom:20px;
+            transition:all 0.5s;
+            color:#fff;
+            width:100px;
+            height:100px;
+            padding:30px 0;
+            background:#C54DAA;
+            border-radius:50%;
+        }
+    </style>
+
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+    <h1>Font Awesome Icons Example</h1>
+    <a href="http://fontawesome.io/accessibility/">參考：Font Awesome Accessibility</a><br />
+    <a href="http://fontawesome.io/examples/">參考：Font Awesome Examples</a><br />
+    
+    
+    <div class="container" style="background-color:lightgrey; padding:20px 0">
+        <i class="fa fa-fighter-jet" aria-hidden="true"></i>
+    </div>
+
+    <div class="container" style="background-color:lightyellow; padding:20px 0">
+        <h1 class="logo">
+            <i class="fa fa-pied-piper" aria-hidden="true"></i>
+            Pied Piper - Logo
+        </h1>
+    </div>
+
+    <div class="container" style="background-color:lightgrey; padding:20px 0">
+        <a href="https://github.com/FortAwesome/Font-Awesome"><i class="fa fa-github" aria-hidden="true"></i> View this project's code on Github</a>
+    </div>
+
+    <div class="container" style="background-color:lightyellow; padding:20px 0">
+        <h3>Icons with semantic or interactive purpose</h3>
+        <dl>
+            <dt>
+                <i class="fa fa-car" aria-hidden="true" title="Time to destination by car"></i>
+                <span class="sr-only">Time to destination by car:</span>
+            </dt>
+            <dd>4 minutes</dd>
+
+            <dt>
+                <i class="fa fa-bicycle" aria-hidden="true" title="Time to destination by bike"></i>
+                <span class="sr-only">Time to destination by bike:</span>
+            </dt>
+            <dd>12 minutes</dd>
+        </dl>
+    </div>
+
+    <div class="container" style="background-color:lightgrey; padding:20px 0">
+        <i class="fa fa-hourglass" aria-hidden="true" title="60 minutes remain in your exam"></i>
+        <span class="sr-only">60 minutes remain in your exam</span>
+
+        <i class="fa fa-hourglass-half" aria-hidden="true" title="30 minutes remain in your exam"></i>
+        <span class="sr-only">30 minutes remain in your exam</span>
+
+        <i class="fa fa-hourglass-end" aria-hidden="true" title="0 minutes remain in your exam"></i>
+        <span class="sr-only">0 minutes remain in your exam</span>
+    </div>
+
+    <div class="container" style="background-color:lightyellow; padding:20px 0">
+        <h2>Overlay - fa-stack</h2>
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-square-o fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+        fa-twitter on fa-square-o<br>
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-circle-o fa-stack-2x"></i>
+            <i class="fa fa-twitter fa-stack-1x"></i>
+        </span>
+        fa-twitter on fa-square-o<br>
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-circle fa-stack-2x"></i>
+            <i class="fa fa-flag fa-stack-1x fa-inverse"></i>
+        </span>
+        fa-flag on fa-circle<br>
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-square fa-stack-2x"></i>
+            <i class="fa fa-terminal fa-stack-1x fa-inverse"></i>
+        </span>
+        fa-terminal on fa-square<br>
+        <span class="fa-stack fa-lg">
+            <i class="fa fa-camera fa-stack-1x"></i>
+            <i class="fa fa-ban fa-stack-2x text-danger"></i>
+        </span>
+        fa-ban on fa-camera
+    </div>
+
+    <div class="container">
+        <div class="service-item">
+            <i class="fa fa-check-circle-o"></i>fa-check-circle-o
+        </div>
+    </div>
+</body>
+</html>

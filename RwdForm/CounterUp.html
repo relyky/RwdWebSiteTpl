@@ -1,0 +1,52 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>jQuery-Countup Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <style>
+    </style>
+
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/jquery.waypoints.min.js"></script>
+    <script src="/jquery.counterup/jquery.counterup.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+    <h1>jQuery-Countup Example</h1>
+    <a href="https://github.com/ciromattia/jquery.counterup" style="font-size:large">ref → jquery.counterup</a>
+    <div id="hat" style="height:1000px;background-color:grey;"></div>
+    <div class="container">
+        <h1 class="upcounter">1,234,567</h1>
+
+        <h1 class="counter">1,234,567.00</h1>
+        <h1><span>$</span><span class="counter">1.99</span></h1>
+        <h1 class="counter">12345</h1>
+
+        <h1>
+            <span class="counter" data-counterup-time="1500" data-counterup-delay="30" data-counterup-beginat="100">1,234,567.00</span>
+        </h1>
+    </div>
+    <div id="tail" style="height:1000px;background-color:grey;"></div>
+
+    <script type="text/javascript">
+        // init.
+        $(".upcounter").counterUp({ time: 2000, delay: 100 });
+
+        $(".counter").counterUp({ time: 2000, delay: 100 });
+
+
+    </script>
+</body>
+</html>

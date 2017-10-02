@@ -18,6 +18,7 @@
             transform: scale(1.1);
             opacity: 0.66;
         }
+
     </style>
 
     <script src="/Scripts/jquery-3.1.1.min.js"></script>
@@ -39,7 +40,6 @@
                 //bgcolor: '#eee',            // default: '#fff'
                 //titleattr: 'data-title',    // default: 'title'
             });
-
         });
 
     </script>
@@ -61,14 +61,15 @@
             </div>
             <div id="inline-image-1" style="display:none;">
                 <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
-                    <h4>Image 1/4</h4>
-                    <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。</p>
+                    <span class="badge" style="float:right;">1/4</span>
+                    <h4>Image</h4>
+                    <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。<a href="http://asp.net">&nbsp;more&raquo;</a></p>
                     <img src="/img/portfolio/01-large.jpg" alt="image-01" class="img-responsive" />
                 </div>
             </div>
 
             <!-- image2 -->
-            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px">
+            <div class="col-xs-6 col-sm-4 col-md-3" style="margin-bottom:10px; text-align:right">
                 <a class="venobox" data-gall="Gallery01"
                    data-vbtype="inline" href="#inline-image-2">
                     <img src="/img/portfolio/02-small.jpg" alt="image-02" class="img-responsive" />
@@ -76,8 +77,9 @@
             </div>
             <div id="inline-image-2" style="display:none;">
                 <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                    <span class="badge" style="float:right;">2/4</span>
                     <h4>Image 2/4</h4>
-                    <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。</p>
+                    <p>在排除狹隘多疑的心態，相信建造者與承包商的正直之後，他覺得很真誠、舒暢，不再有罪惡感，認為船絕對安全，還是可以出航。他輕鬆自在地目送船離港，由衷祝福它平安到達異鄉。結果，船航行到一半就沉了，船主拿到保險金，卻沒說出真相。</p>
                     <img src="/img/portfolio/02-large.jpg" alt="image-02" class="img-responsive" />
                 </div>
             </div>
@@ -91,6 +93,7 @@
             </div>
             <div id="inline-image-3" style="display:none;">
                 <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                    <span class="badge" style="float:right;">3/4</span>
                     <h4>Image 3/4</h4>
                     <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。</p>
                     <img src="/img/portfolio/03-large.jpg" alt="image-03" class="img-responsive" />
@@ -106,6 +109,7 @@
             </div>
             <div id="inline-image-4" style="display:none;">
                 <div style="background:#fff; width:100%; height:100%; float:left; padding:10px;">
+                    <span class="badge" style="float:right;">4/4</span>
                     <h4>Image 4/4</h4>
                     <p>this is my inline content, with custom options.配合圖片寬度調整，原則上所有圖版寬度全部一致。</p>
                     <img src="/img/portfolio/04-large.jpg" alt="image-04" class="img-responsive" />
@@ -114,7 +118,6 @@
         </div>
 
     </div>
-
 </body>
 </html>
 

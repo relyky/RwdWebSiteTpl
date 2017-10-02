@@ -1,0 +1,61 @@
+﻿<!DOCTYPE HTML>
+<html>
+<head>
+
+	<meta charset="UTF-8">
+
+	<title>CountUp.js Test</title>
+
+	<script src="/countUp.js"></script>
+
+</head>
+
+<body>
+
+    <div id="hat">
+        <div style="height:1000px; background-color:grey;"></div>
+    </div>
+
+	<section>
+		<h1>CountUp.js Test</h1>
+
+        <h1 id="myTargetElement">0</h1> 
+
+        <h1 id="myTargetElement2">0</h1> 
+
+        <h1 id="myTargetElement3">0</h1> 
+	</section>
+
+    <div id="tail">
+        <div style="height:1000px; background-color:grey;"></div>
+    </div>
+
+    <script>
+
+        var options = {
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+            decimal: '.',
+            prefix: '$',
+            suffix: '元整'
+        };
+        var demo = new CountUp('myTargetElement', 0, 3984, 0, 2.5, options);
+        if (!demo.error) {
+            demo.start();
+        } else {
+            console.error(demo.error);
+        }
+
+        var numAnim2 = new CountUp("myTargetElement2", 0, 100);
+        numAnim2.start();
+
+        var numAnim3 = new CountUp("myTargetElement3", 0, 200);
+        numAnim3.start(function () {
+            numAnim3.update(100);
+        });
+
+    </script>
+
+</body>
+</html>

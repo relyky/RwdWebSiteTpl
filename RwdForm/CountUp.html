@@ -1,0 +1,62 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>countUp.js demo</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <style>
+    </style>
+
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/countUp.js/dist/countUp.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+
+        });
+
+    </script>
+
+</head>
+<body>
+    <h1>countUp.js demo</h1>
+
+    <div class="container">
+        <h1>CountUp.js Test</h1>
+        <h1 id="myTargetElement">0</h1>
+        <h1 id="myTargetElement2">0</h1>
+        <h1 id="myTargetElement3">0</h1>
+    </div>
+
+    <script>
+
+        var options = {
+            useEasing: true,
+            useGrouping: true,
+            separator: ',',
+            decimal: '.',
+            prefix: '$',
+            suffix: '元整'
+        };
+        var demo = new CountUp('myTargetElement', 0, 3984.67, 2, 2.5, options);
+        if (!demo.error) {
+            demo.start();
+        } else {
+            console.error(demo.error);
+        }
+
+        var numAnim2 = new CountUp("myTargetElement2", 0, 100);
+        numAnim2.start();
+
+        var numAnim3 = new CountUp("myTargetElement3", 0, 200);
+        numAnim3.start(function () {
+            numAnim3.update(100);
+        });
+
+    </script>
+</body>
+</html>

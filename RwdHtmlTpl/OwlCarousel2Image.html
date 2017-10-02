@@ -22,7 +22,7 @@
     <script type="text/javascript">
         $(document).ready(function () {
             //## Owl initializer function
-            $('.owl-carousel').owlCarousel({
+            $('#carouselA').owlCarousel({
                 loop: true,
                 margin: 10,                
                 nav: false,
@@ -50,6 +50,27 @@
                     }
                 }
             });
+
+            //## Owl initializer function
+            $('#carouselB').owlCarousel({
+                loop: true,
+                margin: 10,
+                nav: false,
+                lazyLoad: true,
+                autoplay: true,
+                autoplayTimeout: 1000,
+                autoplayHoverPause: true,
+                responsive: {
+                    0: {
+                        items: 1,
+                        nav: true,
+                        dots: false,
+                    },
+                    768: {
+                        items: 2,
+                    }
+                }
+            });
         });
     </script>
 
@@ -62,7 +83,7 @@
             To show image.
         </p>
 
-        <div class="owl-carousel owl-theme">
+        <div id="carouselA" class="owl-carousel owl-theme">
             <img class="owl-lazy" data-src="/imgs/img1-01_365.jpg">
             <img class="owl-lazy" data-src="/imgs/img2-02_365.jpg">
             <img class="owl-lazy" data-src="/imgs/img2-03_365.jpg">
@@ -81,6 +102,10 @@
             <img class="owl-lazy" data-src="/imgs/img2-07_365.jpg">
         </div>
 
+        <div id="carouselB" class="owl-carousel owl-theme">
+            <img class="owl-lazy" data-src="/imgs/img1-01_365.jpg">
+            <img class="owl-lazy" data-src="/imgs/img2-02_365.jpg">
+        </div>
     </div>
 </body>
 </html>

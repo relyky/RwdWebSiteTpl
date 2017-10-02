@@ -2,15 +2,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Bootstrap Mainframe Example</title>
+    <title>jquery-incremental-counter Test</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/jquery-incremental-counter/jquery.incremental-counter.css" />
     <style>
     </style>
 
     <script src="/Scripts/jquery-3.1.1.min.js"></script>
     <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/jquery-incremental-counter/jquery.incremental-counter.min.js"></script>
     <script type="text/javascript">
 
         $(document).ready(function () {
@@ -22,14 +24,20 @@
 
 </head>
 <body>
-    <h1>Your Title</h1>
+    <h1>jquery-incremental-counter Test</h1>
+
+    <div id="hat" style="height:1000px;background-color:grey;"></div>
+
     <div class="container">
         <h2>put you idea here.</h2>
-        <button>Click Me</button>
+        <div class="incremental-counter" data-value="1482"></div>
     </div>
 
+    <div id="tail" style="height:1000px;background-color:grey;"></div>
+
     <script type="text/javascript">
-        // init.
+
+        $(".incremental-counter").incrementalCounter();
 
     </script>
 </body>

@@ -1,0 +1,422 @@
+﻿
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Bootstrap Mainframe Example</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/Content/bootstrap.min.css" />
+    <link rel="stylesheet" href="/Content/sweetalert.css" />
+    <style>
+    </style>
+
+    <script src="/Scripts/jquery-3.1.1.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/sweetalert.min.js"></script>
+    <script type="text/javascript">
+
+        $(document).ready(function () {
+
+            $('#btn1').on('click', function() {
+                alert("Here's a message!");
+            });
+
+            $('#btn2').on('click', function() {
+                // Basic example
+                swal("Here's a message!");
+            });
+
+            $('#btn3').on('click', function() {
+                // A title with a text under
+                swal("Here's a message!", "It's pretty, isn't it?");
+            });
+
+            $('#btn4').on('click', function() {
+                // A success message!
+                swal("Good job!", "You clicked the button!", "success");
+                // or 
+                //swal({
+                //    title: "Good job!",
+                //    text: "You clicked the button!",
+                //    type: "success",
+                //});
+            });
+
+            $('#btn5').on('click', function() {
+                // A warning message, with a function attached to the "Confirm" button...
+                swal({
+                    title: "Are you sure?",
+                    text: "Your will not be able to recover this imaginary file!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Yes, delete it!",
+                    closeOnConfirm: false
+                },
+                function () {
+                    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                });
+            });
+
+            $('#btn6').on('click', function() {
+                // ...and by passing a parameter, you can execute something else for "Cancel".
+                swal({
+                    title: "Are you sure?",
+                    text: "You will not be able to recover this imaginary file!",
+                    type: "warning",
+                    showCancelButton: true,
+                    confirmButtonClass: "btn-danger",
+                    confirmButtonText: "Yes, delete it!",
+                    cancelButtonText: "No, cancel plx!",
+                    closeOnConfirm: false,
+                    closeOnCancel: false
+                },
+                function (isConfirm) {
+                    if (isConfirm) {
+                        swal("Deleted!", "Your imaginary file has been deleted.", "success");
+                    } else {
+                        swal("Cancelled", "Your imaginary file is safe :)", "error");
+                    }
+                });
+            });
+
+            $('#btn7').on('click', function () {
+                // A message with a custom icon
+                swal({
+                    title: "Sweet!",
+                    text: "Here's a custom image.",
+                    imageUrl: '/img/thumbs-up.jpg'
+                });
+            });
+
+            $('#btn8').on('click', function () {
+                // A replacement for the "prompt" function
+                swal({
+                    title: "An input!",
+                    text: "Write something interesting:",
+                    type: "input",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    inputPlaceholder: "Write something"
+                }, function (inputValue) {
+                    if (inputValue === false) return false;
+                    if (inputValue === "") {
+                        swal.showInputError("You need to write something!");
+                        return false
+                    }
+                    swal("Nice!", "You wrote: " + inputValue, "success");
+                });
+            });
+
+            $('#btn9').on('click', function () {
+                // With a loader (for a AJAX requests)
+                swal({
+                    title: "Ajax request example",
+                    text: "Submit to run ajax request",
+                    type: "info",
+                    showCancelButton: true,
+                    closeOnConfirm: false,
+                    showLoaderOnConfirm: true
+                }, function () {
+                    setTimeout(function () {
+                        swal("Ajax request finished!");
+                    }, 2000);
+                });
+            });
+
+        });
+
+        function swalDefault()
+        {
+            swal({
+                title: "",
+                text: "allowOutsideClick. You will not be able to recover this imaginary file!",
+                showConfirmButton: false,
+                showCancelButton: true,
+                cancelButtonClass: "btn-default",
+                cancelButtonText: "Close",
+                allowOutsideClick: true,
+            });
+        }
+
+        function swalPrimary()
+        {
+            swal({
+                title: "Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "",
+                //showCancelButton: true,
+                confirmButtonClass: "btn-primary",
+                confirmButtonText: "Close", //"Primary!",
+                allowOutsideClick: true,
+            });
+        }
+
+        function swalInfo() {
+            swal({
+                title: "訊息",
+                text: "You will not be able to recover this imaginary file!",
+                type: "info",
+                //showCancelButton: true,
+                confirmButtonClass: "btn-info",
+                confirmButtonText: "Close", //"Info!",
+                allowOutsideClick: true,
+            });
+        }
+
+        function swalSuccess() {
+            swal({
+                title: "Good job", //"Are you sure?",
+                text: "You will not be able to recover this imaginary file!",
+                type: "success",
+                //showCancelButton: true,
+                confirmButtonClass: "btn-success",
+                confirmButtonText: "Close", //"Success!",
+                allowOutsideClick: true,
+            });
+        }
+
+        function swalWarning() {
+            swal({
+                title: "警告！",
+                text: "You will not be able to recover this imaginary file!",
+                type: "warning",
+                //showCancelButton: true,
+                confirmButtonClass: "btn-warning",
+                confirmButtonText: "Close", //"Warning!",
+                allowOutsideClick: true,
+            });
+        }
+
+        function swalError() {
+            swal({
+                title: "失敗！",
+                text: "You will not be able to recover this imaginary file!",
+                type: "error",
+                //showCancelButton: true,
+                confirmButtonClass: "btn-danger",
+                confirmButtonText: "Close", //"Danger!",
+                allowOutsideClick: true,
+            });
+        }
+
+    </script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>SweetAlert for Bootstrap</h1>
+        <a href="https://lipis.github.io/bootstrap-sweetalert/" target="_blank">SweetAlert for Bootstrap</a><br />
+        <a href="http://mishengqiang.com/sweetalert/" target="_blank">Sweet Alert 中文</a>
+    </div>
+
+    <div class="container">
+        <h2>Try any of those!</h2>
+        <div>
+            <button class="btn btn-lg btn-default" onclick="swalDefault()">Default</button>
+            <button class="btn btn-lg btn-primary" onclick="swalPrimary()">Primary</button>
+            <button class="btn btn-lg btn-info"    onclick="swalInfo()">Info</button>
+            <button class="btn btn-lg btn-success" onclick="swalSuccess()">Success</button>
+            <button class="btn btn-lg btn-warning" onclick="swalWarning()">Warning</button>
+            <button class="btn btn-lg btn-danger"  onclick="swalError()">Danger</button>
+        </div>
+
+        <h2>Original Examples</h2>
+
+        <h4>Alert</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn1" class="btn btn-primary">Try It</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">alert("Here's a message!")</pre>
+            </div>
+        </div>
+
+        <h4>Basic example</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn2" class="btn btn-primary">Try It</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">swal("Here's a message!")</pre>
+            </div>
+        </div>
+
+        <h4>A title with a text under</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn3" class="btn btn-primary">Try It</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">swal("Here's a message!", "It's pretty, isn't it?")</pre>
+            </div>
+        </div>
+
+        <h4>A success message!</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn4" class="btn btn-success">success</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">
+swal("Good job!", "You clicked the button!", "success")
+// or 
+swal({
+    title: "Good job!",
+    text: "You clicked the button!",
+    type: "success",
+});
+                </pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button class="btn btn-info" onclick='swal("Good job!", "You clicked the button!", "info")'>info</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">swal("Good job!", "You clicked the button!", "info")</pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button class="btn btn-warning" onclick='swal("Good job!", "You clicked the button!", "warning")'>warning</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">swal("Good job!", "You clicked the button!", "warning")</pre>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button class="btn btn-danger" onclick='swal("Good job!", "You clicked the button!", "error")'>error</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">swal("Good job!", "You clicked the button!", "error")</pre>
+            </div>
+        </div>
+
+        <h4>A warning message, with a function attached to the "Confirm" button...</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn5" class="btn btn-primary">Try It</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">
+swal({
+  title: "Are you sure?",
+  text: "Your will not be able to recover this imaginary file!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Yes, delete it!",
+  closeOnConfirm: false
+},
+function(){
+  swal("Deleted!", "Your imaginary file has been deleted.", "success");
+});</pre>
+            </div>
+        </div>
+
+        <h4>...and by passing a parameter, you can execute something else for "Cancel".</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn6" class="btn btn-primary">Try It</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">
+swal({
+  title: "Are you sure?",
+  text: "You will not be able to recover this imaginary file!",
+  type: "warning",
+  showCancelButton: true,
+  confirmButtonClass: "btn-danger",
+  confirmButtonText: "Yes, delete it!",
+  cancelButtonText: "No, cancel plx!",
+  closeOnConfirm: false,
+  closeOnCancel: false
+},
+function(isConfirm) {
+  if (isConfirm) {
+    swal("Deleted!", "Your imaginary file has been deleted.", "success");
+  } else {
+    swal("Cancelled", "Your imaginary file is safe :)", "error");
+  }
+});</pre>
+            </div>
+        </div>
+
+        <h4>A message with a custom icon</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn7" class="btn btn-primary">Try It</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">
+swal({
+  title: "Sweet!",
+  text: "Here's a custom image.",
+  imageUrl: 'thumbs-up.jpg'
+});</pre>
+            </div>
+        </div>
+
+        <h4>A replacement for the "prompt" function</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn8" class="btn btn-primary">Try It</button></p>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">
+swal({
+  title: "An input!",
+  text: "Write something interesting:",
+  type: "input",
+  showCancelButton: true,
+  closeOnConfirm: false,
+  inputPlaceholder: "Write something"
+}, function (inputValue) {
+  if (inputValue === false) return false;
+  if (inputValue === "") {
+    swal.showInputError("You need to write something!");
+    return false
+  }
+  swal("Nice!", "You wrote: " + inputValue, "success");
+});</pre>
+            </div>
+        </div>
+
+        <h4>With a loader (for a AJAX requests)</h4>
+        <div class="row">
+            <div class="col-sm-2 text-center">
+                <button id="btn9" class="btn btn-primary">Try It</button>
+            </div>
+            <div class="col-sm-10">
+                <pre class="code">
+swal({
+  title: "Ajax request example",
+  text: "Submit to run ajax request",
+  type: "info",
+  showCancelButton: true,
+  closeOnConfirm: false,
+  showLoaderOnConfirm: true
+}, function () {
+  setTimeout(function () {
+    swal("Ajax request finished!");
+  }, 2000);
+});</pre>
+            </div>
+        </div>
+
+    </div>
+
+    <img class="img-responsive" src="/img/thumbs-up.jpg" />
+
+    <footer class="container-fluid" style="text-align:center;">
+        <hr />
+        <p class="text-muted">
+            All the contents of this Website are protected by Copyright Laws and International Trade Agreements.<br />
+            Copyright ©2002 Asia Vista Technology, Inc. All rights reserved..
+        </p>
+    </footer>
+</body>
+</html>
